@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="KOTOMORY — независимый fashion-бренд. Y2K, минимализм и современный streetwear.">
+  <title>KOTOMORY — Y2K Fashion Brand</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="announcement" data-ru="KOTOMORY — современный streetwear, вдохновлённый 2000-ми" data-en="KOTOMORY — modern streetwear inspired by the 2000s">KOTOMORY — современный streetwear, вдохновлённый 2000-ми</div>
+  <header class="site-header">
+    <button class="icon-btn menu-toggle" aria-label="Открыть меню" id="menuToggle">☰</button>
+    <a class="wordmark" href="#home" aria-label="KOTOMORY home">KOTOMORY<span>®</span></a>
+    <nav class="main-nav" id="mainNav"><a href="#shop" data-ru="КАТАЛОГ" data-en="SHOP">КАТАЛОГ</a><a href="#about" data-ru="О БРЕНДЕ" data-en="ABOUT">О БРЕНДЕ</a><a href="#editorial" data-ru="ЖУРНАЛ" data-en="EDITORIAL">ЖУРНАЛ</a><a href="#details" data-ru="ДЕТАЛИ" data-en="DETAILS">ДЕТАЛИ</a><a href="#contact" data-ru="КОНТАКТЫ" data-en="CONTACT">КОНТАКТЫ</a></nav>
+    <div class="header-actions"><button id="themeToggle" class="text-btn" aria-label="Сменить тему">◐ <span data-ru="ТЕМА" data-en="MODE">ТЕМА</span></button><button id="langToggle" class="text-btn">RU / EN</button><button id="searchToggle" class="icon-btn" aria-label="Поиск">⌕</button><button id="cartToggle" class="cart-btn"><span data-ru="КОРЗИНА" data-en="BAG">КОРЗИНА</span> <span id="cartCount">(0)</span></button></div>
+  </header>
+  <main id="home">
+    <section class="hero" aria-label="KOTOMORY campaign"><img src="assets/kotomory-banner.png" alt="Кампейн KOTOMORY: модели в чёрной одежде и логотип бренда"><div class="hero-overlay"></div><div class="hero-copy"><p class="eyebrow" data-ru="КОЛЛЕКЦИЯ / 001" data-en="COLLECTION / 001">КОЛЛЕКЦИЯ / 001</p><h1 data-ru="ФОРМА.<br>ХАРАКТЕР." data-en="FORM.<br>ATTITUDE.">ФОРМА.<br>ХАРАКТЕР.</h1><p data-ru="Новая интерпретация эстетики Y2K." data-en="A new interpretation of Y2K aesthetics.">Новая интерпретация эстетики Y2K.</p><a class="button button-light" href="#shop" data-ru="СМОТРЕТЬ КОЛЛЕКЦИЮ ↗" data-en="EXPLORE COLLECTION ↗">СМОТРЕТЬ КОЛЛЕКЦИЮ ↗</a></div><div class="hero-meta"><span>INDEPENDENT FASHION LABEL</span><span>EST. 2025 — EVERYDAY FUTURE</span></div></section>
+    <section class="ticker" aria-hidden="true"><div>KOTOMORY ✳ Y2K REDEFINED ✳ FUTURE UNIFORM ✳ KOTOMORY ✳ Y2K REDEFINED ✳ FUTURE UNIFORM ✳</div></section>
+    <section class="section shop-section" id="shop"><div class="section-head"><div><p class="eyebrow" data-ru="ПОДБОРКА 001" data-en="SELECTION 001">ПОДБОРКА 001</p><h2 data-ru="НОВАЯ ФОРМА" data-en="NEW UNIFORM">НОВАЯ ФОРМА</h2></div><div class="shop-tools"><label class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Поиск вещей / Search items" aria-label="Поиск товаров"></label><select id="sortSelect" aria-label="Сортировка"><option value="featured">Рекомендуем / Featured</option><option value="low">Сначала дешевле / Price: low</option><option value="high">Сначала дороже / Price: high</option></select></div></div>
+      <div class="filters" aria-label="Фильтры товаров"><button class="filter active" data-filter="all">ALL / ВСЁ</button><button class="filter" data-filter="tops">TOPS / ВЕРХ</button><button class="filter" data-filter="bottoms">BOTTOMS / НИЗ</button><button class="filter" data-filter="accessories">ACCESSORIES / АКСЕССУАРЫ</button></div>
+      <div class="product-grid" id="productGrid"></div><p id="emptyState" class="empty-state" hidden>Ничего не найдено. Попробуй изменить поиск.</p>
+    </section>
+    <section class="editorial" id="editorial"><div class="editorial-image"><img src="assets/kotomory-banner.png" alt="Чёрно-белая fashion-съёмка KOTOMORY"></div><div class="editorial-copy"><p class="eyebrow">KTM / VISUAL NOTES 001</p><h2 data-ru="НЕ ГНАТЬСЯ<br>ЗА БУДУЩИМ.<br>НОСИТЬ ЕГО." data-en="DON’T CHASE<br>THE FUTURE.<br>WEAR IT.">НЕ ГНАТЬСЯ<br>ЗА БУДУЩИМ.<br>НОСИТЬ ЕГО.</h2><p data-ru="KOTOMORY соединяет эстетику начала нулевых с чистыми формами и функциональностью современного streetwear. Меньше шума. Больше характера." data-en="KOTOMORY brings early-2000s aesthetics together with clean forms and the functionality of modern streetwear. Less noise. More attitude.">KOTOMORY соединяет эстетику начала нулевых с чистыми формами и функциональностью современного streetwear. Меньше шума. Больше характера.</p><a href="#about" class="underlink" data-ru="НАША ФИЛОСОФИЯ ↗" data-en="OUR PHILOSOPHY ↗">НАША ФИЛОСОФИЯ ↗</a></div></section>
+    <section class="about section" id="about"><p class="eyebrow" data-ru="О БРЕНДЕ" data-en="THE LABEL">О БРЕНДЕ</p><h2 data-ru="ТИХАЯ РОСКОШЬ.<br>ГРОМКИЙ ХАРАКТЕР." data-en="QUIET LUXURY.<br>LOUD IDENTITY.">ТИХАЯ РОСКОШЬ.<br>ГРОМКИЙ ХАРАКТЕР.</h2><p class="about-text" data-ru="KOTOMORY — независимый бренд одежды, вдохновлённый Y2K и андеграундной культурой. Мы строим визуальный язык на контрасте: лаконичные формы, монохромная палитра и детали, которые говорят сами за себя." data-en="KOTOMORY is an independent fashion label inspired by Y2K and underground culture. Our visual language is built on contrast: concise silhouettes, a monochrome palette, and details that speak for themselves.">KOTOMORY — независимый бренд одежды, вдохновлённый Y2K и андеграундной культурой. Мы строим визуальный язык на контрасте: лаконичные формы, монохромная палитра и детали, которые говорят сами за себя.</p><div class="values"><div><span>01</span><strong>Y2K REWORKED</strong><p data-ru="Эстетика нулевых в новом контексте." data-en="2000s aesthetics in a new context.">Эстетика нулевых в новом контексте.</p></div><div><span>02</span><strong>LESS, BUT BETTER</strong><p data-ru="Продуманная форма без визуального шума." data-en="Considered design without visual noise.">Продуманная форма без визуального шума.</p></div><div><span>03</span><strong>OWN YOUR FORM</strong><p data-ru="Одежда как часть индивидуальности." data-en="Clothing as an extension of identity.">Одежда как часть индивидуальности.</p></div></div></section>
+    <section class="details-section section" id="details">
+      <div class="section-head details-heading"><div><p class="eyebrow" data-ru="ПОДРОБНОСТИ / KTM" data-en="DETAILS / KTM">ПОДРОБНОСТИ / KTM</p><h2 data-ru="ВАЖНО ВНУТРИ" data-en="THE DETAILS MATTER">ВАЖНО ВНУТРИ</h2></div><p class="details-intro" data-ru="Вещи, сервис и детали бренда — всё в одном месте." data-en="Pieces, service, and brand details — all in one place.">Вещи, сервис и детали бренда — всё в одном месте.</p></div>
+      <div class="detail-grid">
+        <article class="detail-card"><span>01 / FIT</span><h3 data-ru="ПОСАДКА И РАЗМЕРЫ" data-en="FIT & SIZING">ПОСАДКА И РАЗМЕРЫ</h3><p data-ru="В основе коллекции — свободные силуэты и комфортная посадка. Перед покупкой сверяйся с описанием конкретной вещи. Таблица размеров появится вместе с финальными замерами изделий." data-en="The collection focuses on relaxed silhouettes and comfortable fits. Check each product description before ordering. A size chart will be added with final garment measurements.">В основе коллекции — свободные силуэты и комфортная посадка. Перед покупкой сверяйся с описанием конкретной вещи. Таблица размеров появится вместе с финальными замерами изделий.</p></article>
+        <article class="detail-card"><span>02 / CARE</span><h3 data-ru="УХОД ЗА ВЕЩАМИ" data-en="GARMENT CARE">УХОД ЗА ВЕЩАМИ</h3><p data-ru="Чтобы одежда дольше сохраняла форму и цвет, следуй инструкции на внутреннем ярлыке. Для изделий с принтами и техническими деталями предпочтительна бережная стирка." data-en="To help garments keep their shape and colour, follow the care label inside each item. Gentle washing is recommended for printed pieces and technical details.">Чтобы одежда дольше сохраняла форму и цвет, следуй инструкции на внутреннем ярлыке. Для изделий с принтами и техническими деталями предпочтительна бережная стирка.</p></article>
+        <article class="detail-card"><span>03 / DELIVERY</span><h3 data-ru="ДОСТАВКА И ВОЗВРАТ" data-en="DELIVERY & RETURNS">ДОСТАВКА И ВОЗВРАТ</h3><p data-ru="Условия доставки, сроки и возможность возврата будут подтверждены перед запуском продаж. Сейчас каталог демонстрационный: заказы и оплата через сайт ещё не подключены." data-en="Delivery times, shipping options, and return terms will be confirmed before launch. This is currently a demo catalogue; checkout and payments are not connected yet.">Условия доставки, сроки и возможность возврата будут подтверждены перед запуском продаж. Сейчас каталог демонстрационный: заказы и оплата через сайт ещё не подключены.</p></article>
+        <article class="detail-card"><span>04 / DROP 001</span><h3 data-ru="ПЕРВЫЙ ДРОП" data-en="THE FIRST DROP">ПЕРВЫЙ ДРОП</h3><p data-ru="KOTOMORY Drop 001 — концептуальная подборка в духе Y2K: монохром, свободные формы и функциональные детали. Товары и цены на сайте пока используются как демонстрационный пример." data-en="KOTOMORY Drop 001 is a Y2K-inspired concept selection: monochrome tones, relaxed forms, and functional details. Products and prices shown are currently demo examples.">KOTOMORY Drop 001 — концептуальная подборка в духе Y2K: монохром, свободные формы и функциональные детали. Товары и цены на сайте пока используются как демонстрационный пример.</p></article>
+      </div>
+      <div class="faq-block"><p class="eyebrow" data-ru="FAQ / КОРОТКО О ГЛАВНОМ" data-en="FAQ / QUICK ANSWERS">FAQ / КОРОТКО О ГЛАВНОМ</p>
+        <details><summary data-ru="Как выбрать размер?" data-en="How do I choose a size?">Как выбрать размер?</summary><p data-ru="Смотри описание посадки в карточке товара. Подробная таблица с замерами будет добавлена перед реальным запуском магазина." data-en="Check the fit notes on each product card. A detailed measurement chart will be added before the store launches.">Смотри описание посадки в карточке товара. Подробная таблица с замерами будет добавлена перед реальным запуском магазина.</p></details>
+        <details><summary data-ru="Можно ли оформить заказ прямо сейчас?" data-en="Can I place an order right now?">Можно ли оформить заказ прямо сейчас?</summary><p data-ru="Пока нет: корзина работает как демонстрация интерфейса. Оплата и отправка заказов не подключены." data-en="Not yet: the cart is an interface demo. Payment and order fulfilment are not connected.">Пока нет: корзина работает как демонстрация интерфейса. Оплата и отправка заказов не подключены.</p></details>
+        <details><summary data-ru="Как связаться с брендом?" data-en="How can I contact the brand?">Как связаться с брендом?</summary><p data-ru="Напиши на почту или в Telegram — ссылки находятся внизу сайта." data-en="Email or message us on Telegram using the links in the footer.">Напиши на почту или в Telegram — ссылки находятся внизу сайта.</p></details>
+      </div>
+    </section>
+    <section class="newsletter"><div><p class="eyebrow" data-ru="ЗАКРЫТЫЙ ДОСТУП" data-en="EARLY ACCESS">ЗАКРЫТЫЙ ДОСТУП</p><h2 data-ru="БУДЬ ВНУТРИ." data-en="GET IN EARLY.">БУДЬ ВНУТРИ.</h2><p data-ru="Новости о дропах, новых коллекциях и проектах KOTOMORY." data-en="Updates on drops, new collections, and KOTOMORY projects.">Новости о дропах, новых коллекциях и проектах KOTOMORY.</p></div><form id="newsletterForm"><input type="email" required placeholder="Твой e-mail / Your email" aria-label="Электронная почта"><button type="submit" class="button button-light" data-ru="ПОДПИСАТЬСЯ ↗" data-en="SUBSCRIBE ↗">ПОДПИСАТЬСЯ ↗</button><small id="newsletterMessage"></small></form></section>
+  </main>
+  <footer id="contact" class="site-footer">
+    <div class="footer-brand"><a class="wordmark footer-logo" href="#home">KOTOMORY<span>®</span></a><p data-ru="Независимый fashion-бренд. Создано с характером." data-en="Independent fashion label. Made with attitude.">Независимый fashion-бренд. Создано с характером.</p></div>
+    <div class="footer-contact"><p class="eyebrow" data-ru="СВЯЗАТЬСЯ С НАМИ" data-en="GET IN TOUCH">СВЯЗАТЬСЯ С НАМИ</p><a href="mailto:eg_roz00@mail.ru">eg_roz00@mail.ru <span>↗</span></a><a href="https://t.me/spectremeiner" target="_blank" rel="noopener noreferrer">TELEGRAM @spectremeiner <span>↗</span></a></div>
+    <div class="footer-links"><a href="#shop">SHOP</a><a href="#about">ABOUT</a><a href="#details">DETAILS</a><a href="mailto:eg_roz00@mail.ru">EMAIL</a><a href="https://t.me/spectremeiner" target="_blank" rel="noopener noreferrer">TELEGRAM ↗</a></div>
+    <small>© 2026 KOTOMORY. ALL RIGHTS RESERVED.</small>
+  </footer>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div><aside class="cart-drawer" id="cartDrawer" aria-label="Корзина" aria-hidden="true"><div class="drawer-head"><h2 data-ru="ТВОЯ КОРЗИНА" data-en="YOUR BAG">ТВОЯ КОРЗИНА</h2><button id="cartClose" class="icon-btn" aria-label="Закрыть">✕</button></div><div id="cartItems" class="cart-items"></div><div class="cart-bottom"><div class="shipping-perk"><div><span data-ru="БЕСПЛАТНАЯ ДОСТАВКА ОТ 10 000 ₽" data-en="FREE SHIPPING OVER 10,000 ₽">БЕСПЛАТНАЯ ДОСТАВКА ОТ 10 000 ₽</span><strong id="shippingProgressText">Добавь товары, чтобы получить бонус</strong></div><div class="shipping-track"><span id="shippingProgressBar"></span></div></div><div class="total"><span data-ru="ИТОГО" data-en="TOTAL">ИТОГО</span><strong id="cartTotal">0 ₽</strong></div><button id="checkoutBtn" class="button button-dark" data-ru="ПЕРЕЙТИ К ОФОРМЛЕНИЮ ↗" data-en="CONTINUE TO CHECKOUT ↗">ПЕРЕЙТИ К ОФОРМЛЕНИЮ ↗</button><small data-ru="Демонстрационный магазин · оплата учебная" data-en="Demo store · simulated payment">Демонстрационный магазин · оплата учебная</small></div></aside>
+  <div class="size-modal-backdrop" id="sizeModalBackdrop"></div>
+  <section class="size-modal" id="sizeModal" role="dialog" aria-modal="true" aria-labelledby="sizeModalTitle" aria-hidden="true">
+    <button class="size-modal-close" id="sizeModalClose" aria-label="Закрыть">✕</button>
+    <p class="eyebrow">KOTOMORY / SELECT SIZE</p>
+    <h2 id="sizeModalTitle">ВЫБЕРИ РАЗМЕР</h2>
+    <p class="size-product-name" id="sizeProductName"></p>
+    <div class="size-options" role="group" aria-label="Размер">
+      <button type="button" data-size="S">S</button><button type="button" data-size="M" class="selected">M</button><button type="button" data-size="L">L</button><button type="button" data-size="XL">XL</button>
+    </div>
+    <p class="size-note" data-ru="Выбранный размер появится в корзине вместе с товаром." data-en="Your selected size will appear in the bag with the item.">Выбранный размер появится в корзине вместе с товаром.</p>
+    <button class="button button-dark" id="confirmSize">ДОБАВИТЬ В КОРЗИНУ ↗</button>
+  </section>
+  <div class="checkout-backdrop" id="checkoutBackdrop"></div>
+  <section class="checkout-modal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle" aria-hidden="true">
+    <button class="checkout-close" id="checkoutClose" type="button" aria-label="Закрыть">✕</button>
+    <div id="checkoutFormView">
+      <p class="eyebrow">KOTOMORY / CHECKOUT DEMO</p>
+      <h2 id="checkoutTitle" data-ru="ОФОРМЛЕНИЕ ЗАКАЗА" data-en="CHECKOUT">ОФОРМЛЕНИЕ ЗАКАЗА</h2>
+      <p class="checkout-subtitle" data-ru="Заполни данные для тестового заказа." data-en="Enter details for a demo order.">Заполни данные для тестового заказа.</p>
+      <form id="checkoutForm">
+        <label><span data-ru="ИМЯ И ФАМИЛИЯ" data-en="FULL NAME">ИМЯ И ФАМИЛИЯ</span><input name="customerName" autocomplete="name" required placeholder="Егор Розов"></label>
+        <label><span>E-MAIL</span><input name="customerEmail" type="email" autocomplete="email" required placeholder="name@example.com"></label>
+        <div class="payment-label" data-ru="КАК ДОСТАВИТЬ ЗАКАЗ?" data-en="HOW SHOULD WE DELIVER?">КАК ДОСТАВИТЬ ЗАКАЗ?</div>
+        <label class="payment-choice delivery-choice"><input type="radio" name="deliveryMethod" value="courier" checked><span><strong data-ru="Курьер до двери" data-en="Courier to your door">Курьер до двери</strong><small data-ru="500 ₽ · бесплатно от 10 000 ₽" data-en="500 ₽ · free over 10,000 ₽">500 ₽ · бесплатно от 10 000 ₽</small></span><b>⌂</b></label>
+        <label class="payment-choice delivery-choice"><input type="radio" name="deliveryMethod" value="pickup"><span><strong data-ru="Пункт выдачи" data-en="Pickup point">Пункт выдачи</strong><small data-ru="Выбери удобный пункт на карте позже — сейчас демо" data-en="Pickup point selection is a demo for now">Выбери удобный пункт на карте позже — сейчас демо</small></span><b>⌖</b></label>
+        <div id="deliveryAddressFields">
+          <label><span data-ru="ГОРОД" data-en="CITY">ГОРОД</span><input name="customerCity" autocomplete="address-level2" required placeholder="Москва"></label>
+          <label><span data-ru="УЛИЦА И ДОМ" data-en="STREET AND HOUSE">УЛИЦА И ДОМ</span><input name="customerAddress" autocomplete="street-address" required placeholder="Улица, дом, корпус"></label>
+          <div class="address-inline"><label><span data-ru="КВАРТИРА / ОФИС" data-en="APT / UNIT">КВАРТИРА / ОФИС</span><input name="customerApartment" placeholder="Например, 24"></label><label><span data-ru="ИНДЕКС" data-en="POSTCODE">ИНДЕКС</span><input name="customerPostcode" autocomplete="postal-code" placeholder="101000"></label></div>
+          <label><span data-ru="КОММЕНТАРИЙ К ДОСТАВКЕ (НЕОБЯЗАТЕЛЬНО)" data-en="DELIVERY NOTE (OPTIONAL)">КОММЕНТАРИЙ К ДОСТАВКЕ (НЕОБЯЗАТЕЛЬНО)</span><input name="deliveryNote" placeholder="Домофон, удобное время…"></label>
+        </div>
+        <div class="promo-row"><label><span data-ru="ПРОМОКОД" data-en="PROMO CODE">ПРОМОКОД</span><input id="promoInput" placeholder="KOTOMORY10" autocomplete="off"></label><button id="applyPromo" type="button" class="promo-apply" data-ru="ПРИМЕНИТЬ" data-en="APPLY">ПРИМЕНИТЬ</button></div><p id="promoMessage" class="promo-message" aria-live="polite"></p>
+        <div class="checkout-breakdown"><span data-ru="ТОВАРЫ" data-en="ITEMS">ТОВАРЫ</span><strong id="checkoutSubtotal">0 ₽</strong><span data-ru="ДОСТАВКА" data-en="DELIVERY">ДОСТАВКА</span><strong id="checkoutShipping">0 ₽</strong><span data-ru="СКИДКА" data-en="DISCOUNT">СКИДКА</span><strong id="checkoutDiscount">0 ₽</strong></div>
+        <div class="payment-label" data-ru="СПОСОБ ОПЛАТЫ (ДЕМО)" data-en="PAYMENT METHOD (DEMO)">СПОСОБ ОПЛАТЫ (ДЕМО)</div>
+        <label class="payment-choice"><input type="radio" name="paymentMethod" value="card" checked><span><strong data-ru="Банковская карта" data-en="Bank card">Банковская карта</strong><small data-ru="Только имитация — без ввода данных карты" data-en="Simulation only — no card details needed">Только имитация — без ввода данных карты</small></span><b>▰</b></label>
+        <label class="payment-choice"><input type="radio" name="paymentMethod" value="sbp"><span><strong>СБП</strong><small data-ru="Демонстрационный вариант" data-en="Demo option">Демонстрационный вариант</small></span><b>↗</b></label>
+        <div class="checkout-total"><span data-ru="К ОПЛАТЕ" data-en="TOTAL DUE">К ОПЛАТЕ</span><strong id="checkoutTotal">0 ₽</strong></div>
+        <button class="button button-dark" type="submit" id="demoPayBtn" data-ru="ИМИТИРОВАТЬ ОПЛАТУ ↗" data-en="SIMULATE PAYMENT ↗">ИМИТИРОВАТЬ ОПЛАТУ ↗</button>
+        <p class="demo-disclaimer" data-ru="Это учебная демонстрация. Реального платежа и заказа не создаётся." data-en="This is a demo. No real payment or order will be created.">Это учебная демонстрация. Реального платежа и заказа не создаётся.</p>
+      </form>
+    </div>
+    <div id="sbpPaymentView" hidden>
+      <p class="eyebrow">KOTOMORY / СБП DEMO</p>
+      <h2 data-ru="ОПЛАТА ЧЕРЕЗ СБП" data-en="PAY WITH SBP">ОПЛАТА ЧЕРЕЗ СБП</h2>
+      <p class="checkout-subtitle" data-ru="В реальном магазине здесь появится QR-код от платёжного провайдера. Сейчас это только макет — отсканировать его и перевести деньги нельзя." data-en="A real store would show a payment QR from its provider here. This is only a mockup; it cannot be scanned to transfer money.">В реальном магазине здесь появится QR-код от платёжного провайдера. Сейчас это только макет — отсканировать его и перевести деньги нельзя.</p>
+      <div class="sbp-demo-card">
+        <div class="sbp-brand"><span class="sbp-mark">↗</span><span><strong>СБП</strong><small>Система быстрых платежей</small></span></div>
+        <div class="fake-qr" aria-label="Декоративный демонстрационный QR-код"><span class="qr-corner q1"></span><span class="qr-corner q2"></span><span class="qr-corner q3"></span><span class="qr-noise"></span><span class="qr-center">KTM</span></div>
+        <p class="sbp-amount-label" data-ru="СУММА ДЕМО-ПЛАТЕЖА" data-en="DEMO PAYMENT AMOUNT">СУММА ДЕМО-ПЛАТЕЖА</p><strong class="sbp-amount" id="sbpAmount">0 ₽</strong>
+      </div>
+      <p class="demo-disclaimer" data-ru="Макет QR-кода не является платёжным реквизитом. Реального перевода не будет." data-en="This mock QR is not a payment credential. No real transfer will occur.">Макет QR-кода не является платёжным реквизитом. Реального перевода не будет.</p>
+      <button class="button button-dark" id="sbpDemoConfirm" type="button" data-ru="ИМИТИРОВАТЬ ОПЛАТУ ↗" data-en="SIMULATE PAYMENT ↗">ИМИТИРОВАТЬ ОПЛАТУ ↗</button>
+      <button class="sbp-back" id="sbpBack" type="button" data-ru="← НАЗАД К СПОСОБУ ОПЛАТЫ" data-en="← BACK TO PAYMENT METHOD">← НАЗАД К СПОСОБУ ОПЛАТЫ</button>
+    </div>
+    <div id="checkoutSuccessView" hidden>
+      <p class="eyebrow">KOTOMORY / ORDER STATUS</p>
+      <div class="success-mark">✓</div>
+      <h2 data-ru="ОПЛАТА УСПЕШНА" data-en="PAYMENT SUCCESSFUL">ОПЛАТА УСПЕШНА</h2>
+      <p class="checkout-subtitle" data-ru="Демонстрационный платёж прошёл успешно. Деньги не списывались." data-en="Demo payment completed. No money was charged.">Демонстрационный платёж прошёл успешно. Деньги не списывались.</p>
+      <p class="demo-order-number"><span data-ru="НОМЕР ДЕМО-ЗАКАЗА" data-en="DEMO ORDER NUMBER">НОМЕР ДЕМО-ЗАКАЗА</span><strong id="demoOrderNumber">KTM-DEMO-0001</strong></p>
+      <button class="button button-dark" id="finishCheckout" type="button" data-ru="ВЕРНУТЬСЯ В МАГАЗИН ↗" data-en="BACK TO SHOP ↗">ВЕРНУТЬСЯ В МАГАЗИН ↗</button>
+    </div>
+  </section>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body></html>
