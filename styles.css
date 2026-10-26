@@ -23,3 +23,113 @@
 
 /* Delivery choices, promo code and cart perks */
 .shipping-perk{border:1px solid var(--line);padding:15px;margin-bottom:20px}.shipping-perk>div:first-child{display:flex;flex-direction:column;gap:8px}.shipping-perk span{font:9px 'DM Mono',monospace;letter-spacing:.1em;color:var(--muted)}.shipping-perk strong{font-size:11px;font-weight:600}.shipping-track{height:4px;background:var(--line);margin-top:14px;overflow:hidden}.shipping-track span{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}.address-inline{display:grid;grid-template-columns:1fr 1fr;gap:12px}.address-inline label{display:block;margin:15px 0}.address-inline label>span{display:block;font:9px 'DM Mono',monospace;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}.address-inline input{width:100%;padding:13px 12px;background:transparent;border:1px solid var(--line);color:var(--text);outline:none;font-size:12px}.address-inline input:focus{border-color:var(--accent)}.promo-row{display:grid;grid-template-columns:1fr auto;align-items:end;gap:10px;margin-top:20px}.promo-row label{min-width:0}.promo-row label>span{display:block;font:9px 'DM Mono',monospace;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}.promo-row input{width:100%;min-width:0;padding:13px 12px;background:transparent;border:1px solid var(--line);color:var(--text);outline:none;font-size:12px;text-transform:uppercase}.promo-row input:focus{border-color:var(--accent)}.promo-apply{padding:14px 13px;background:var(--accent);color:#080808;border:1px solid var(--accent);font:9px 'DM Mono',monospace;letter-spacing:.08em}.promo-message{min-height:14px;font-size:10px;color:var(--accent);margin:7px 0 0}.checkout-breakdown{display:grid;grid-template-columns:1fr auto;gap:10px;border-top:1px solid var(--line);padding-top:17px;margin-top:18px;font:10px 'DM Mono',monospace;color:var(--muted)}.checkout-breakdown strong{color:var(--text);font-weight:500;text-align:right}.checkout-breakdown+ .payment-label{margin-top:22px}@media(max-width:420px){.address-inline{grid-template-columns:1fr;gap:0}.promo-row{grid-template-columns:1fr}.promo-apply{width:100%}}
+
+/* KOTOMORY CORE TEE product photo and product notes */
+.product-visual:has(.product-photo){background:#fff}
+.product-visual:has(.product-photo):before{display:none}
+.product-photo{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;transition:transform .45s}
+.product-card:hover .product-photo{transform:scale(1.025)}
+.product-details{margin-top:12px;border-top:1px solid var(--line)}
+.product-details p{display:flex;gap:12px;align-items:flex-start;margin:0;padding:10px 0;border-bottom:1px solid var(--line);font-size:11px;line-height:1.5;color:var(--muted)}
+.product-details p span{font:9px 'DM Mono',monospace;color:var(--accent);min-width:18px}
+@media(max-width:680px){.product-details p{font-size:10px;padding:8px 0}}
+/* Product image carousel for the Void Guardian tee */
+.product-visual:has(.product-gallery-controls){background:#fff}
+.product-visual:has(.product-gallery-controls):before{display:none}
+.product-visual .product-photo{object-fit:contain;background:#fff}
+.product-gallery-controls{position:absolute;z-index:3;top:50%;left:10px;right:10px;transform:translateY(-50%);display:flex;justify-content:space-between;align-items:center;pointer-events:none}
+.product-gallery-controls button{pointer-events:auto;width:32px;height:32px;border:1px solid #111;background:#ffffffdc;color:#111;border-radius:50%;font-size:22px;line-height:1;display:grid;place-items:center}
+.product-gallery-controls span{pointer-events:none;align-self:flex-end;margin-top:170px;background:#fff;color:#111;padding:6px 8px;font:9px 'DM Mono',monospace;letter-spacing:.08em}
+@media(max-width:680px){.product-gallery-controls{left:7px;right:7px}.product-gallery-controls button{width:29px;height:29px}.product-gallery-controls span{margin-top:145px}}
+
+/* Detailed product page overlay for KOTOMORY Void Guardian */
+.product-title-link{padding:0;border:0;background:none;color:inherit;text-align:left;font:inherit;font-weight:600;cursor:pointer}.product-title-link:hover{text-decoration:underline;text-underline-offset:4px}.product-detail-backdrop{position:fixed;inset:0;background:#000d;z-index:49;opacity:0;pointer-events:none;transition:opacity .25s}.product-detail-backdrop.open{opacity:1;pointer-events:auto}.product-detail-modal{position:fixed;z-index:50;inset:3vh 3vw;background:var(--bg);color:var(--text);border:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:clamp(22px,4vw,64px);padding:clamp(22px,4vw,56px);overflow:auto;opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .25s,transform .25s}.product-detail-modal.open{opacity:1;pointer-events:auto;transform:translateY(0)}.product-detail-close{position:absolute;right:18px;top:15px;z-index:3;background:none;color:var(--text);border:0;font-size:23px;cursor:pointer}.detail-gallery{min-width:0}.detail-main-image{position:relative;aspect-ratio:1/1;background:#fff;border:1px solid var(--line);display:grid;place-items:center;overflow:hidden}.detail-main-image img{width:100%;height:100%;object-fit:contain}.detail-main-image>button{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:48px;background:#1118;color:#fff;border:1px solid #fff4;font-size:30px;cursor:pointer}.detail-main-image #detailPrev{left:12px}.detail-main-image #detailNext{right:12px}.detail-main-image>span{position:absolute;top:13px;left:14px;padding:5px 8px;background:#1118;color:#fff;font:9px 'DM Mono',monospace;letter-spacing:.12em}.detail-thumbnails{display:flex;gap:10px;margin-top:12px}.detail-thumbnails button{width:82px;height:82px;padding:0;border:1px solid var(--line);background:#fff;opacity:.65;cursor:pointer}.detail-thumbnails button.active{opacity:1;border-color:var(--text)}.detail-thumbnails img{width:100%;height:100%;object-fit:contain}.detail-info{padding:20px 0;align-self:center}.detail-info h2{font-size:clamp(28px,3.4vw,50px);line-height:1.05;letter-spacing:-.05em;margin:14px 0}.detail-price{font-size:26px;margin:18px 0}.detail-description{color:var(--muted);font-size:13px;line-height:1.8;max-width:460px}.detail-size-title{font:9px 'DM Mono',monospace;letter-spacing:.12em;margin:28px 0 12px}.detail-sizes{display:flex;gap:8px}.detail-sizes button{width:52px;height:44px;border:1px solid var(--line);background:transparent;color:var(--text);font:11px 'DM Mono',monospace;cursor:pointer}.detail-sizes button.active{background:var(--text);color:var(--bg)}.detail-add{width:100%;margin:20px 0 26px}.detail-benefits{border-top:1px solid var(--line)}.detail-benefits>div{padding:14px 0;border-bottom:1px solid var(--line)}.detail-benefits strong{font:9px 'DM Mono',monospace;letter-spacing:.1em}.detail-benefits p,.detail-footnote{font-size:11px;color:var(--muted);line-height:1.6;margin:7px 0 0}.detail-footnote{margin-top:16px}.product-detail-open{overflow:hidden}
+@media(max-width:760px){.product-detail-modal{inset:0;padding:60px 18px 28px;display:block;border:0}.detail-main-image{aspect-ratio:1/1}.detail-info{padding:28px 0 10px}.detail-info h2{font-size:30px}.detail-thumbnails button{width:68px;height:68px}}
+
+/* KOTOMORY responsive polish + wishlist controls */
+.product-visual .product-photo{image-rendering:auto;backface-visibility:hidden;will-change:transform}
+.product-card{position:relative;contain:layout paint}
+.product-info{align-items:flex-start;line-height:1.5}
+.product-title-link{line-height:1.45}
+.favorite-toggle{position:absolute;z-index:5;top:10px;right:10px;width:38px;height:38px;display:grid;place-items:center;border:1px solid #7778;border-radius:50%;background:#090909b8;color:#fff;font-size:22px;line-height:1;backdrop-filter:blur(8px);transition:background .2s,color .2s,transform .2s}
+.favorite-toggle:hover,.favorite-toggle.is-favorite{background:#f5f5f2;color:#111;border-color:#f5f5f2}
+.favorite-toggle:active{transform:scale(.92)}
+.product-gallery-controls span{margin-top:0;align-self:flex-start;position:absolute;top:-28px;left:0;background:#1119;color:#fff;backdrop-filter:blur(7px);border:1px solid #ffffff30;border-radius:20px;padding:5px 8px}
+.product-gallery-controls button{box-shadow:0 2px 10px #0002}
+.product-detail-modal{overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.detail-main-image img{touch-action:pan-y;user-select:none;-webkit-user-drag:none}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.mobile-bottom-nav{display:none}
+@media(max-width:760px){
+  .site-header{height:60px;padding:0 14px;gap:10px}
+  .wordmark{font-size:22px;letter-spacing:-.07em}
+  .main-nav{top:60px}
+  .hero{min-height:470px;height:72svh;max-height:680px}
+  .hero-copy{top:54%;max-width:90%}
+  .hero h1{font-size:clamp(44px,13vw,74px)}
+  .section{padding:54px 16px}
+  .section-head{gap:20px}
+  .shop-tools{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+  .search-wrap{min-width:0}
+  .search-wrap input{width:100%;min-width:0}
+  .shop-tools select{width:100%;min-width:0;font-size:10px;padding:10px 7px}
+  .filters{margin:24px 0 18px;gap:7px}
+  .filter{padding:9px 10px;font-size:9px}
+  .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 10px}
+  .product-visual{aspect-ratio:3/4}
+  .product-info{padding-top:10px;font-size:11px;gap:6px}
+  .product-info span{font-size:11px}
+  .product-meta{flex-direction:column;gap:5px;font-size:8px;overflow-wrap:anywhere}
+  .product-details{margin-top:8px}
+  .product-details p{font-size:10px;line-height:1.45}
+  .favorite-toggle{top:7px;right:7px;width:34px;height:34px;font-size:20px}
+  .quick-add{transform:none;left:5px;right:5px;bottom:5px;padding:11px 4px;font-size:8px;letter-spacing:.03em}
+  .product-gallery-controls{top:50%;left:5px;right:5px}
+  .product-gallery-controls button{width:28px;height:28px;font-size:19px}
+  .product-gallery-controls span{top:-25px;font-size:8px}
+  .site-footer,footer{padding-bottom:105px}
+  .mobile-bottom-nav{position:fixed;z-index:40;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:8px 6px calc(8px + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(18px)}
+  .mobile-bottom-nav a,.mobile-bottom-nav button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:48px;color:var(--text);background:none;border:0;text-decoration:none}
+  .mobile-bottom-nav span{font-size:21px;line-height:1.1}
+  .mobile-bottom-nav small{font:8px 'DM Mono',monospace;letter-spacing:.04em;color:var(--muted)}
+  .mobile-bottom-nav b{font-weight:500;color:var(--accent)}
+  .toast{bottom:calc(75px + env(safe-area-inset-bottom));width:max-content;max-width:calc(100vw - 24px);text-align:center;line-height:1.5}
+}
+@media(max-width:390px){
+  .wordmark{font-size:19px}
+  .header-actions{gap:8px}
+  .header-actions .text-btn{font-size:8px}
+  .product-info{flex-direction:column}
+  .product-info span{white-space:normal}
+  .quick-add{font-size:7px}
+}
+
+/* Search refinements */
+.search-wrap{position:relative;display:flex;align-items:center;gap:8px}
+.search-wrap input{min-width:0;flex:1}
+.clear-search{flex:0 0 28px;width:28px;height:28px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--text);font-size:19px;line-height:1;cursor:pointer;display:grid;place-items:center}
+.clear-search[hidden]{display:none}
+.clear-search:hover{background:var(--text);color:var(--bg)}
+.empty-state{max-width:560px;margin:28px auto;text-align:center;line-height:1.7;color:var(--muted)}
+@media(max-width:760px){.search-wrap{width:100%;min-width:0}.search-wrap input{width:100%;font-size:12px}}
+
+/* Product details: large hero image + product information, no thumbnail strip. */
+.detail-thumbnails,.detail-main-image>button,.detail-main-image>span{display:none!important}
+.detail-main-image{aspect-ratio:4/5;min-height:360px;background:#fff}
+.detail-main-image img{object-fit:contain;padding:12px}
+.product-meta[data-open-detail],.product-details[data-open-detail]{cursor:pointer}
+.product-meta[data-open-detail]:hover,.product-details[data-open-detail]:hover{color:var(--text)}
+.product-meta[data-open-detail]:focus-visible,.product-details[data-open-detail]:focus-visible{outline:1px solid var(--accent);outline-offset:3px}
+.product-card[data-product-card="12"] .product-meta{display:none}
+@media(max-width:680px){.product-detail-modal{grid-template-columns:1fr;gap:10px;inset:1vh 2vw;padding:22px 16px;overflow:auto}.detail-main-image{min-height:220px;max-height:42vh}.detail-info{padding:8px 0}.detail-info h2{font-size:29px}.detail-description{font-size:12px}}
+
+/* Product detail editorial sheet — shared by every product */
+.product-detail-modal{grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);align-content:start;gap:clamp(22px,3vw,48px);padding-bottom:30px}
+.detail-gallery{align-self:start}.detail-main-image{background:#fff}.detail-info{align-self:start;padding-top:14px}.detail-editorial{grid-column:1/-1;border-top:1px solid var(--line);padding-top:24px;margin-top:4px;min-width:0}.detail-editorial-head{display:grid;grid-template-columns:1fr 1.5fr;column-gap:24px;align-items:end;margin-bottom:18px}.detail-editorial-head .eyebrow{grid-column:1/-1;margin:0 0 8px}.detail-editorial-head h3{font-size:clamp(22px,3vw,38px);letter-spacing:-.045em;margin:0}.detail-editorial-head>p:last-child{font-size:12px;line-height:1.7;color:var(--muted);max-width:640px;margin:0}.detail-feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.detail-feature-card{min-width:0;border:1px solid var(--line);padding:10px;background:var(--surface,transparent)}.detail-feature-image{position:relative;aspect-ratio:4/3;background:#fff;overflow:hidden}.detail-feature-image img{width:100%;height:100%;object-fit:contain}.detail-feature-image span{position:absolute;top:8px;left:8px;padding:4px 6px;background:#000b;color:#fff;font:10px 'DM Mono',monospace}.detail-feature-card h4{font:10px 'DM Mono',monospace;letter-spacing:.1em;margin:12px 0 7px}.detail-feature-card p{font-size:11px;line-height:1.65;color:var(--muted);margin:0}.detail-product-footer{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);margin-top:22px;padding-top:12px;font:9px 'DM Mono',monospace;letter-spacing:.12em;color:var(--muted)}
+@media(max-width:760px){.product-detail-modal{display:block}.detail-editorial{margin-top:24px;padding-top:18px}.detail-editorial-head{display:block}.detail-editorial-head h3{margin-bottom:10px}.detail-feature-grid{grid-template-columns:1fr 1fr;gap:9px}.detail-feature-card{padding:7px}.detail-feature-card p{font-size:10px}.detail-product-footer{font-size:8px}.detail-main-image{max-height:45vh}}
+@media(max-width:420px){.detail-feature-grid{grid-template-columns:1fr}.detail-feature-image{aspect-ratio:16/9}.detail-product-footer{flex-direction:column}}
+
+/* Assault Cirass: clean catalog thumbnail, no leftover labels or legacy card view. */
+.product-card[data-product-card="12"] .product-photo{object-fit:contain;background:#fff;padding:0;}
+.product-card[data-product-card="12"] .product-gallery-controls{display:flex;}
+.detail-main-image img{object-fit:contain;}
