@@ -133,3 +133,22 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 .product-card[data-product-card="12"] .product-photo{object-fit:contain;background:#fff;padding:0;}
 .product-card[data-product-card="12"] .product-gallery-controls{display:flex;}
 .detail-main-image img{object-fit:contain;}
+
+/* Account modal, real cart thumbnails, persistent theme and mobile refinements */
+.cart-thumb{overflow:hidden;min-width:0;position:relative;background:var(--panel);border:1px solid var(--line)}
+.cart-thumb img{display:block;width:100%;height:100%;object-fit:contain;position:relative;z-index:1}
+.account-backdrop{position:fixed;inset:0;background:#000a;z-index:60;opacity:0;pointer-events:none;transition:opacity .2s}
+.account-modal{position:fixed;z-index:61;left:50%;top:50%;transform:translate(-50%,-46%) scale(.98);opacity:0;pointer-events:none;width:min(460px,calc(100vw - 28px));max-height:calc(100dvh - 32px);overflow:auto;background:var(--panel);color:var(--text);border:1px solid var(--line);padding:34px;transition:opacity .2s,transform .2s;overscroll-behavior:contain}
+.account-modal.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+.account-backdrop:has(+ .account-modal.open){opacity:1;pointer-events:auto}
+.account-close{position:absolute;right:16px;top:14px;border:0;background:none;color:var(--text);font-size:20px}
+.account-modal h2{font-size:28px;letter-spacing:-.04em;margin:0 0 12px}.account-intro,.account-note{font-size:12px;line-height:1.65;color:var(--muted)}
+.account-modal form{display:grid;gap:15px;margin-top:22px}.account-modal label{display:grid;gap:8px;font:9px 'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase}.account-modal input{width:100%;min-width:0;padding:13px 12px;background:transparent;border:1px solid var(--line);color:var(--text);font:12px Arial,sans-serif;letter-spacing:normal;text-transform:none}.account-modal input:focus{outline:1px solid var(--accent)}.account-message{min-height:18px;font-size:12px;line-height:1.5;color:var(--accent)}.account-switch{border:0;border-bottom:1px solid var(--line);background:none;color:var(--text);padding:7px 0;font-size:11px}.account-note{display:block;margin-top:18px;font-size:10px}
+@media(max-width:760px){
+  body{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
+  .site-header{gap:8px}.header-actions{gap:10px}.header-actions .text-btn:first-child{display:none!important}.account-toggle{font-size:18px;padding:5px 0}.header-actions .cart-btn{font-size:0;min-width:28px}.header-actions .cart-btn span:first-child{font-size:0}.header-actions .cart-btn span:first-child:before{content:'♧';font-size:20px}.header-actions .cart-btn #cartCount{font:10px 'DM Mono',monospace}
+  .mobile-bottom-nav{grid-template-columns:repeat(5,minmax(0,1fr))}.mobile-bottom-nav button,.mobile-bottom-nav a{min-width:0;padding:3px 0}.mobile-bottom-nav small{font-size:7px;white-space:nowrap}.mobile-bottom-nav span{font-size:20px}
+  .product-grid{gap:20px 9px}.product-card{min-width:0;overflow:hidden}.product-info strong{line-height:1.4;overflow-wrap:anywhere}.product-visual{min-width:0}.product-gallery-controls span{margin-top:0;top:-24px;position:absolute;right:0;background:#0009;color:#fff;padding:4px 6px}.product-gallery-controls{top:auto;bottom:54px}
+  .cart-drawer{padding:18px 16px calc(90px + env(safe-area-inset-bottom));height:100dvh}.cart-row{grid-template-columns:58px minmax(0,1fr) auto;gap:10px}.cart-thumb{height:70px}.cart-row strong{overflow-wrap:anywhere}.cart-bottom{padding-top:12px}.shipping-perk{padding:12px;margin-bottom:14px}.account-modal{padding:30px 22px}
+}
+@media(max-width:380px){.site-header{padding:0 10px}.wordmark{font-size:18px}.header-actions{gap:7px}.header-actions .icon-btn{font-size:17px}.product-info{font-size:10px}.product-info span{font-size:10px}.mobile-bottom-nav small{font-size:6px}}

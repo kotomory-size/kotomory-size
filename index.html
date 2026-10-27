@@ -11,7 +11,7 @@
     <button class="icon-btn menu-toggle" aria-label="Открыть меню" id="menuToggle">☰</button>
     <a class="wordmark" href="#home" aria-label="KOTOMORY home">KOTOMORY<span>®</span></a>
     <nav class="main-nav" id="mainNav"><a href="#shop" data-ru="КАТАЛОГ" data-en="SHOP">КАТАЛОГ</a><a href="#about" data-ru="О БРЕНДЕ" data-en="ABOUT">О БРЕНДЕ</a><a href="#editorial" data-ru="ЖУРНАЛ" data-en="EDITORIAL">ЖУРНАЛ</a><a href="#details" data-ru="ДЕТАЛИ" data-en="DETAILS">ДЕТАЛИ</a><a href="#contact" data-ru="КОНТАКТЫ" data-en="CONTACT">КОНТАКТЫ</a></nav>
-    <div class="header-actions"><button id="themeToggle" class="text-btn" aria-label="Сменить тему">◐ <span data-ru="ТЕМА" data-en="MODE">ТЕМА</span></button><button id="langToggle" class="text-btn">RU / EN</button><button id="searchToggle" class="icon-btn" aria-label="Поиск">⌕</button><button id="cartToggle" class="cart-btn"><span data-ru="КОРЗИНА" data-en="BAG">КОРЗИНА</span> <span id="cartCount">(0)</span></button></div>
+    <div class="header-actions"><button id="themeToggle" class="text-btn" aria-label="Сменить тему">◐ <span data-ru="ТЕМА" data-en="MODE">ТЕМА</span></button><button id="langToggle" class="text-btn">RU / EN</button><button id="searchToggle" class="icon-btn" aria-label="Поиск">⌕</button><button id="accountToggle" class="icon-btn account-toggle" aria-label="Личный кабинет">♙</button><button id="cartToggle" class="cart-btn"><span data-ru="КОРЗИНА" data-en="BAG">КОРЗИНА</span> <span id="cartCount">(0)</span></button></div>
   </header>
   <main id="home">
     <section class="hero" aria-label="KOTOMORY campaign"><img src="assets/kotomory-banner.png" alt="Кампейн KOTOMORY: модели в чёрной одежде и логотип бренда"><div class="hero-overlay"></div><div class="hero-copy"><p class="eyebrow" data-ru="КОЛЛЕКЦИЯ / 001" data-en="COLLECTION / 001">КОЛЛЕКЦИЯ / 001</p><h1 data-ru="ФОРМА.<br>ХАРАКТЕР." data-en="FORM.<br>ATTITUDE.">ФОРМА.<br>ХАРАКТЕР.</h1><p data-ru="Новая интерпретация эстетики Y2K." data-en="A new interpretation of Y2K aesthetics.">Новая интерпретация эстетики Y2K.</p><a class="button button-light" id="shopNowBtn" href="#shop" data-ru="СМОТРЕТЬ КОЛЛЕКЦИЮ ↗" data-en="SHOP NOW ↗">СМОТРЕТЬ КОЛЛЕКЦИЮ ↗</a></div><div class="hero-meta"><span>INDEPENDENT FASHION LABEL</span><span>EST. 2025 — EVERYDAY FUTURE</span></div></section>
@@ -108,6 +108,8 @@
       <button class="button button-dark" id="finishCheckout" type="button" data-ru="ВЕРНУТЬСЯ В МАГАЗИН ↗" data-en="BACK TO SHOP ↗">ВЕРНУТЬСЯ В МАГАЗИН ↗</button>
     </div>
   </section>
+
+  <div class="account-backdrop" id="accountBackdrop"></div><section class="account-modal" id="accountModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="accountTitle"><button type="button" class="account-close" id="accountClose" aria-label="Закрыть">✕</button><p class="eyebrow">KOTOMORY / ACCOUNT</p><h2 id="accountTitle">ЛИЧНЫЙ КАБИНЕТ</h2><p class="account-intro" id="accountIntro">Создай демо-аккаунт, чтобы сохранить данные в этом браузере.</p><form id="accountForm"><label>Имя<input name="name" id="accountName" autocomplete="name" required minlength="2" placeholder="Твоё имя"></label><label>E-mail<input name="email" id="accountEmail" type="email" autocomplete="email" required placeholder="name@example.com"></label><label>Пароль<input name="password" id="accountPassword" type="password" autocomplete="new-password" required minlength="6" placeholder="Минимум 6 символов"></label><button class="button button-dark" type="submit" id="accountSubmit">СОЗДАТЬ АККАУНТ ↗</button></form><p class="account-message" id="accountMessage" role="status"></p><button type="button" class="account-switch" id="accountSwitch">Уже есть демо-аккаунт? Войти</button><small class="account-note">Демо-режим: аккаунт хранится только в локальном браузере. Не используй настоящий пароль.</small></section>
   <div class="product-detail-backdrop" id="productDetailBackdrop"></div>
   <section class="product-detail-modal" id="productDetailModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="detailProductTitle">
     <button type="button" class="product-detail-close" id="productDetailClose" aria-label="Закрыть">✕</button>
@@ -118,7 +120,7 @@
   <nav class="mobile-bottom-nav" aria-label="Быстрая навигация">
     <a href="#top" aria-label="Главная"><span>⌂</span><small>Главная</small></a>
     <a href="#shop" aria-label="Каталог"><span>▦</span><small>Каталог</small></a>
-    <button type="button" id="mobileFavorites" aria-label="Избранное"><span>♡</span><small>Избранное</small></button>
+    <button type="button" id="mobileTheme" aria-label="Сменить тему"><span>◐</span><small>Тема</small></button><button type="button" id="mobileFavorites" aria-label="Избранное"><span>♡</span><small>Избранное</small></button>
     <button type="button" id="mobileCart" aria-label="Корзина"><span>♧</span><small>Корзина <b id="mobileCartCount">0</b></small></button>
   </nav>
   <div class="toast" id="toast" role="status"></div>
