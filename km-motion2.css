@@ -7,14 +7,12 @@
 .detail-materials li:before{content:'✳';position:absolute;left:0;color:var(--accent);font-size:.8em;top:.2em}
 /* hero extras */
 .hero{isolation:isolate}
-.kx-aurora,.kx-scan,.kx-syms,.kx-badge{position:absolute;pointer-events:none}
+.kx-aurora,.kx-syms,.kx-badge{position:absolute;pointer-events:none}
 .kx-aurora{inset:0;overflow:hidden;z-index:0;mix-blend-mode:screen}
 .kx-aurora i{position:absolute;width:60vmax;height:60vmax;border-radius:50%;filter:blur(40px);opacity:.38;will-change:transform}
 .kx-aurora i:nth-child(1){left:-20vmax;top:-25vmax;background:radial-gradient(circle,#d7ff3f66,transparent 62%);animation:kxOrbA 17s ease-in-out infinite alternate}
 .kx-aurora i:nth-child(2){right:-22vmax;bottom:-30vmax;background:radial-gradient(circle,#4dd2ff55,transparent 62%);animation:kxOrbB 21s ease-in-out infinite alternate}
 @keyframes kxOrbA{to{transform:translate3d(38vw,22vh,0) scale(1.25)}}@keyframes kxOrbB{to{transform:translate3d(-34vw,-18vh,0) scale(1.2)}}
-.kx-scan{left:0;right:0;top:0;height:2px;z-index:1;background:linear-gradient(90deg,transparent,#d7ff3f,transparent);box-shadow:0 0 18px 3px #d7ff3f88;animation:kxScan 7s cubic-bezier(.45,0,.55,1) infinite;opacity:.0}
-@keyframes kxScan{0%{transform:translateY(0);opacity:0}8%{opacity:.9}50%{opacity:.9}60%,100%{transform:translateY(var(--hh,640px));opacity:0}}
 .kx-syms{inset:0;z-index:1;overflow:hidden}
 .kx-sym{position:absolute;font-size:var(--s,20px);color:var(--accent);opacity:0;animation:kxSym var(--d,12s) var(--dl,0s) ease-in-out infinite;will-change:transform,opacity}
 @keyframes kxSym{0%{opacity:0;transform:translate3d(0,24px,0) rotate(0)}20%{opacity:.75}80%{opacity:.5}100%{opacity:0;transform:translate3d(var(--dx,20px),-90px,0) rotate(var(--r,120deg))}}

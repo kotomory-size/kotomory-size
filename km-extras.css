@@ -92,3 +92,21 @@
 .cb-promo button:hover{border-color:var(--accent);transform:translateY(-4px)}
 @media(max-width:760px){.cb-board{--bs:min(calc(100vw - 38px),48dvh,520px)}.cb-cap{font-size:15px;min-height:22px}.cb-promo button{width:56px;height:56px;font-size:34px}}
 .cb-sq em{text-shadow:none}.cb-status{margin-top:10px}
+
+.km-banner:after{display:none!important}
+
+.pr-p{margin:0 0 20px;max-width:780px;font-size:clamp(15px,2vw,21px);line-height:1.6;color:#d6d6d0;animation:kmUp .6s var(--ease-out) .12s both}
+
+/* presentation: screenshots + green code */
+.pr-shot{margin:0 0 18px}.pr-shot img{display:block;width:100%;max-height:44dvh;object-fit:contain;background:#222;border:1px solid #333;cursor:zoom-in;animation:kmUp .6s var(--ease-out) .15s both}
+.pr-shot figcaption{margin-top:6px;font:9px 'DM Mono',monospace;letter-spacing:.12em;color:#7a7a75}
+.pr-zoom{position:absolute;inset:0;z-index:5;overflow:auto;background:#000e;cursor:zoom-out;animation:kfFade .25s;-webkit-overflow-scrolling:touch}.pr-zoom[hidden]{display:none}
+.pr-zoom img{display:block;width:min(1536px,100%);margin:0 auto}
+@media(max-width:760px){.pr-zoom img{width:230%;max-width:none;margin:0}}
+.pr-term{margin:0 0 14px;background:#040a06;border:1px solid #17402a;box-shadow:0 0 30px -12px #39ff88aa;animation:kmUp .6s var(--ease-out) .15s both}
+.pr-bar2{display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:1px solid #17402a;background:#06110a}.pr-bar2 i{width:9px;height:9px;border-radius:50%;background:#1d5a37}.pr-bar2 span{margin-left:8px;font:10px 'DM Mono',monospace;letter-spacing:.1em;color:#4dff88}
+.pr-term pre{margin:0;padding:14px;overflow-x:auto;font:clamp(11px,1.5vw,14px)/1.65 'DM Mono',ui-monospace,monospace;color:#4dff88;text-shadow:0 0 8px #39ff8855}
+.pr-term pre span{display:inline-block;animation:prType .5s steps(1) both;animation-delay:calc(var(--l)*110ms + .5s);opacity:0}.pr-term pre .c{color:#2e9d5b;text-shadow:none}
+@keyframes prType{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
+.pr-term pre span{animation-name:prType2;animation-fill-mode:forwards}@keyframes prType2{to{opacity:1}}
+.pr-term:last-of-type pre:after{content:'▌';color:#4dff88;animation:prBlink 1s steps(1) infinite}@keyframes prBlink{50%{opacity:0}}

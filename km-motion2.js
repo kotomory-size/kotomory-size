@@ -9,7 +9,7 @@ const hero=$('.hero');
 if(hero&&!LITE){
  const sy=['✳','✦','✧','+','◇','✺'],n=PC?14:6;let s='';
  for(let i=0;i<n;i++)s+=`<span class="kx-sym" style="left:${rnd(2,96).toFixed(1)}%;top:${rnd(8,92).toFixed(1)}%;--s:${rnd(14,34).toFixed(0)}px;--d:${rnd(9,18).toFixed(1)}s;--dl:-${rnd(0,12).toFixed(1)}s;--dx:${rnd(-40,40).toFixed(0)}px;--r:${rnd(-180,180).toFixed(0)}deg">${sy[i%sy.length]}</span>`;
- hero.insertAdjacentHTML('beforeend',`<div class="kx-aurora" aria-hidden="true"><i></i><i></i></div><div class="kx-scan" aria-hidden="true"></div><div class="kx-syms" aria-hidden="true">${s}</div><div class="kx-badge" aria-hidden="true"><div class="kx-scroll"><div class="kx-spin"><svg viewBox="0 0 200 200"><defs><path id="kxc" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><text><textPath href="#kxc" textLength="484" lengthAdjust="spacing">HANDMADE ✳ DOTA 2 ✳ KOTOMORY ✳ DROP 001 ✳ </textPath></text></svg></div></div><b>K</b></div>`);
+ hero.insertAdjacentHTML('beforeend',`<div class="kx-aurora" aria-hidden="true"><i></i><i></i></div><div class="kx-syms" aria-hidden="true">${s}</div><div class="kx-badge" aria-hidden="true"><div class="kx-scroll"><div class="kx-spin"><svg viewBox="0 0 200 200"><defs><path id="kxc" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><text><textPath href="#kxc" textLength="484" lengthAdjust="spacing">HANDMADE ✳ DOTA 2 ✳ KOTOMORY ✳ DROP 001 ✳ </textPath></text></svg></div></div><b>K</b></div>`);
  const sc=hero.querySelector('.kx-scroll');let q=0;addEventListener('scroll',()=>{if(q)return;q=1;raf(()=>{q=0;sc.style.rotate=scrollY*.14+'deg'})},{passive:true});
 }
 
