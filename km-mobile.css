@@ -1,0 +1,15 @@
+/* phone optimisation */
+button,a,input,select,label,summary{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.ticker div,.km-big div{will-change:transform}
+@media(max-width:760px){
+ .site-header,.favorite-toggle,.mobile-bottom-nav{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+ .site-header{background:var(--bg)}
+ .about,.editorial,.details-section,.newsletter,.site-footer,.km-big,.km-stats{content-visibility:auto;contain-intrinsic-size:auto 640px}
+ .hero>img{top:0;height:100%}
+ .km-banner:after{display:none}
+}
+/* weak phones / data saver: calmer page */
+.km-lite .km-banner:after,.km-lite .shipping-track span,.km-lite .km-banner.hot,.km-lite #kmGameBtn.live,.km-lite #kmGameBtn.kf-idle{animation:none}
+.km-lite .pr-slide.r,.km-lite .pr-slide.l{animation:prR .3s;filter:none}
+.km-lite .pr-ov:before,.km-lite .pr-slide:before{display:none}
+.km-lite .hero>img{animation:none}

@@ -39,8 +39,8 @@
 .product-visual .product-photo{object-fit:contain;background:#fff}
 .product-gallery-controls{position:absolute;z-index:3;top:50%;left:10px;right:10px;transform:translateY(-50%);display:flex;justify-content:space-between;align-items:center;pointer-events:none}
 .product-gallery-controls button{pointer-events:auto;width:32px;height:32px;border:1px solid #111;background:#ffffffdc;color:#111;border-radius:50%;font-size:22px;line-height:1;display:grid;place-items:center}
-.product-gallery-controls span{pointer-events:none;align-self:flex-end;margin-top:170px;background:#fff;color:#111;padding:6px 8px;font:9px 'DM Mono',monospace;letter-spacing:.08em}
-@media(max-width:680px){.product-gallery-controls{left:7px;right:7px}.product-gallery-controls button{width:29px;height:29px}.product-gallery-controls span{margin-top:145px}}
+
+@media(max-width:680px){.product-gallery-controls{left:7px;right:7px}.product-gallery-controls button{width:29px;height:29px}}
 
 /* Detailed product page overlay for KOTOMORY Void Guardian */
 .product-title-link{padding:0;border:0;background:none;color:inherit;text-align:left;font:inherit;font-weight:600;cursor:pointer}.product-title-link:hover{text-decoration:underline;text-underline-offset:4px}.product-detail-backdrop{position:fixed;inset:0;background:#000d;z-index:49;opacity:0;pointer-events:none;transition:opacity .25s}.product-detail-backdrop.open{opacity:1;pointer-events:auto}.product-detail-modal{position:fixed;z-index:50;inset:3vh 3vw;background:var(--bg);color:var(--text);border:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:clamp(22px,4vw,64px);padding:clamp(22px,4vw,56px);overflow:auto;opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .25s,transform .25s}.product-detail-modal.open{opacity:1;pointer-events:auto;transform:translateY(0)}.product-detail-close{position:absolute;right:18px;top:15px;z-index:3;background:none;color:var(--text);border:0;font-size:23px;cursor:pointer}.detail-gallery{min-width:0}.detail-main-image{position:relative;aspect-ratio:1/1;background:#fff;border:1px solid var(--line);display:grid;place-items:center;overflow:hidden}.detail-main-image img{width:100%;height:100%;object-fit:contain}.detail-main-image>button{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:48px;background:#1118;color:#fff;border:1px solid #fff4;font-size:30px;cursor:pointer}.detail-main-image #detailPrev{left:12px}.detail-main-image #detailNext{right:12px}.detail-main-image>span{position:absolute;top:13px;left:14px;padding:5px 8px;background:#1118;color:#fff;font:9px 'DM Mono',monospace;letter-spacing:.12em}.detail-thumbnails{display:flex;gap:10px;margin-top:12px}.detail-thumbnails button{width:82px;height:82px;padding:0;border:1px solid var(--line);background:#fff;opacity:.65;cursor:pointer}.detail-thumbnails button.active{opacity:1;border-color:var(--text)}.detail-thumbnails img{width:100%;height:100%;object-fit:contain}.detail-info{padding:20px 0;align-self:center}.detail-info h2{font-size:clamp(28px,3.4vw,50px);line-height:1.05;letter-spacing:-.05em;margin:14px 0}.detail-price{font-size:26px;margin:18px 0}.detail-description{color:var(--muted);font-size:13px;line-height:1.8;max-width:460px}.detail-size-title{font:9px 'DM Mono',monospace;letter-spacing:.12em;margin:28px 0 12px}.detail-sizes{display:flex;gap:8px}.detail-sizes button{width:52px;height:44px;border:1px solid var(--line);background:transparent;color:var(--text);font:11px 'DM Mono',monospace;cursor:pointer}.detail-sizes button.active{background:var(--text);color:var(--bg)}.detail-add{width:100%;margin:20px 0 26px}.detail-benefits{border-top:1px solid var(--line)}.detail-benefits>div{padding:14px 0;border-bottom:1px solid var(--line)}.detail-benefits strong{font:9px 'DM Mono',monospace;letter-spacing:.1em}.detail-benefits p,.detail-footnote{font-size:11px;color:var(--muted);line-height:1.6;margin:7px 0 0}.detail-footnote{margin-top:16px}.product-detail-open{overflow:hidden}
@@ -54,7 +54,7 @@
 .favorite-toggle{position:absolute;z-index:5;top:10px;right:10px;width:38px;height:38px;display:grid;place-items:center;border:1px solid #7778;border-radius:50%;background:#090909b8;color:#fff;font-size:22px;line-height:1;backdrop-filter:blur(8px);transition:background .2s,color .2s,transform .2s}
 .favorite-toggle:hover,.favorite-toggle.is-favorite{background:#f5f5f2;color:#111;border-color:#f5f5f2}
 .favorite-toggle:active{transform:scale(.92)}
-.product-gallery-controls span{margin-top:0;align-self:flex-start;position:absolute;top:-28px;left:0;background:#1119;color:#fff;backdrop-filter:blur(7px);border:1px solid #ffffff30;border-radius:20px;padding:5px 8px}
+
 .product-gallery-controls button{box-shadow:0 2px 10px #0002}
 .product-detail-modal{overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
 .detail-main-image img{touch-action:pan-y;user-select:none;-webkit-user-drag:none}
@@ -86,7 +86,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
   .quick-add{transform:none;left:5px;right:5px;bottom:5px;padding:11px 4px;font-size:8px;letter-spacing:.03em}
   .product-gallery-controls{top:50%;left:5px;right:5px}
   .product-gallery-controls button{width:28px;height:28px;font-size:19px}
-  .product-gallery-controls span{top:-25px;font-size:8px}
+  
   .site-footer,footer{padding-bottom:105px}
   .mobile-bottom-nav{position:fixed;z-index:40;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:8px 6px calc(8px + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(18px)}
   .mobile-bottom-nav a,.mobile-bottom-nav button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:48px;color:var(--text);background:none;border:0;text-decoration:none}
@@ -148,7 +148,40 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
   body{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
   .site-header{gap:8px}.header-actions{gap:10px}.header-actions .text-btn:first-child{display:none!important}.account-toggle{font-size:18px;padding:5px 0}.header-actions .cart-btn{font-size:0;min-width:28px}.header-actions .cart-btn span:first-child{font-size:0}.header-actions .cart-btn span:first-child:before{content:'♧';font-size:20px}.header-actions .cart-btn #cartCount{font:10px 'DM Mono',monospace}
   .mobile-bottom-nav{grid-template-columns:repeat(5,minmax(0,1fr))}.mobile-bottom-nav button,.mobile-bottom-nav a{min-width:0;padding:3px 0}.mobile-bottom-nav small{font-size:7px;white-space:nowrap}.mobile-bottom-nav span{font-size:20px}
-  .product-grid{gap:20px 9px}.product-card{min-width:0;overflow:hidden}.product-info strong{line-height:1.4;overflow-wrap:anywhere}.product-visual{min-width:0}.product-gallery-controls span{margin-top:0;top:-24px;position:absolute;right:0;background:#0009;color:#fff;padding:4px 6px}.product-gallery-controls{top:auto;bottom:54px}
+  .product-grid{gap:20px 9px}.product-card{min-width:0;overflow:hidden}.product-info strong{line-height:1.4;overflow-wrap:anywhere}.product-visual{min-width:0}.product-gallery-controls{top:auto;bottom:54px}
   .cart-drawer{padding:18px 16px calc(90px + env(safe-area-inset-bottom));height:100dvh}.cart-row{grid-template-columns:58px minmax(0,1fr) auto;gap:10px}.cart-thumb{height:70px}.cart-row strong{overflow-wrap:anywhere}.cart-bottom{padding-top:12px}.shipping-perk{padding:12px;margin-bottom:14px}.account-modal{padding:30px 22px}
 }
 @media(max-width:380px){.site-header{padding:0 10px}.wordmark{font-size:18px}.header-actions{gap:7px}.header-actions .icon-btn{font-size:17px}.product-info{font-size:10px}.product-info span{font-size:10px}.mobile-bottom-nav small{font-size:6px}}
+
+
+/* KOTOMORY playful quick actions */
+.fun-actions{position:fixed;right:16px;bottom:calc(84px + env(safe-area-inset-bottom));z-index:35;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.fun-actions button{display:flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:0 14px;border:1px solid var(--line);background:var(--panel);color:var(--text);font:10px 'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 6px 24px #0002;cursor:pointer;transition:transform .18s,background .18s,color .18s}
+.fun-actions button:hover{transform:translateY(-2px);background:var(--text);color:var(--panel)}
+.fun-actions #backToTop{width:42px;height:42px;padding:0;font-size:20px}
+@media(max-width:760px){.fun-actions{right:10px;bottom:calc(82px + env(safe-area-inset-bottom));gap:6px}.fun-actions button{min-height:38px;padding:0 10px;font-size:9px}.fun-actions #backToTop{width:38px;height:38px}}
+
+/* KOTOMORY motion system — GPU-friendly, responsive and accessible */
+:root{--motion-fast:150ms;--motion-mid:240ms;--motion-slow:420ms;--ease-out:cubic-bezier(.2,.75,.25,1)}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{ text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; }
+button,a,[role="button"],.product-card,.product-image,.icon-btn,.category-chip,.filter-btn{ -webkit-tap-highlight-color:transparent; }
+button,a,[role="button"],.icon-btn,.category-chip,.filter-btn{transition:color var(--motion-fast) ease,background-color var(--motion-fast) ease,border-color var(--motion-fast) ease,opacity var(--motion-fast) ease,transform var(--motion-fast) var(--ease-out);}
+button:active,.icon-btn:active,.category-chip:active,.filter-btn:active{transform:scale(.97)}
+:where(button,a,input,select,textarea,[tabindex]):focus-visible{outline:2px solid var(--text);outline-offset:3px}
+/* Reveal elements only after a short, transform/opacity-only entrance. */
+.motion-ready .product-card,.motion-ready .section-title,.motion-ready .about-text,.motion-ready .detail-card,.motion-ready .product-info{opacity:0;transform:translate3d(0,12px,0);transition:opacity 360ms var(--ease-out),transform 360ms var(--ease-out)}
+.motion-ready .is-visible{opacity:1!important;transform:translate3d(0,0,0)!important}
+.product-card{will-change:auto;contain:layout style}
+.product-card:hover{z-index:2}
+.product-card .product-image img,.product-card img{transition:transform 500ms var(--ease-out),filter 350ms ease;backface-visibility:hidden}
+@media(hover:hover) and (pointer:fine){.product-card:hover .product-image img,.product-card:hover img{transform:scale(1.025)}.product-card:hover{transform:translateY(-3px);transition:transform 220ms var(--ease-out)}}
+.detail-gallery img,.detail-main-image{animation:kmImageIn 300ms var(--ease-out) both}
+@keyframes kmImageIn{from{opacity:.55;transform:scale(.99)}to{opacity:1;transform:scale(1)}}
+.fun-actions button{transition:transform 180ms var(--ease-out),background-color 180ms ease,color 180ms ease,border-color 180ms ease;}
+.fun-actions button:hover{transform:translate3d(0,-2px,0)}
+.toast,.toast-message{animation:kmToastIn 220ms var(--ease-out) both}
+@keyframes kmToastIn{from{opacity:0;transform:translate3d(0,8px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+/* Keep motion optional and remove costly effects for low-power/small screens. */
+@media(max-width:760px){.product-card:hover{transform:none}.product-card .product-image img,.product-card img{transition:transform 220ms ease,opacity 180ms ease}.motion-ready .product-card,.motion-ready .section-title,.motion-ready .about-text,.motion-ready .detail-card,.motion-ready .product-info{transition-duration:240ms}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.motion-ready .product-card,.motion-ready .section-title,.motion-ready .about-text,.motion-ready .detail-card,.motion-ready .product-info{opacity:1!important}}

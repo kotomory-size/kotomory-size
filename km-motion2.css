@@ -1,0 +1,64 @@
+/* motion2: materials + extra moving animations */
+.product-mat{display:flex;gap:10px;justify-content:space-between;align-items:baseline;padding:10px 0;border-top:1px solid var(--line);font-size:11px;line-height:1.4;cursor:pointer}
+.product-mat span{flex:none;font:9px 'DM Mono',monospace;letter-spacing:.12em;color:var(--accent)}.product-mat b{font-weight:500;text-align:right;color:var(--text)}
+.detail-materials{margin-top:18px;padding:16px;border:1px solid var(--line);border-left:3px solid var(--accent)}
+.detail-materials strong{display:block;margin-bottom:10px;font:10px 'DM Mono',monospace;letter-spacing:.14em;color:var(--accent)}
+.detail-materials ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}.detail-materials li{position:relative;padding-left:20px;font-size:13px;line-height:1.5;color:var(--muted)}
+.detail-materials li:before{content:'✳';position:absolute;left:0;color:var(--accent);font-size:.8em;top:.2em}
+/* hero extras */
+.hero{isolation:isolate}
+.kx-aurora,.kx-scan,.kx-syms,.kx-badge{position:absolute;pointer-events:none}
+.kx-aurora{inset:0;overflow:hidden;z-index:0;mix-blend-mode:screen}
+.kx-aurora i{position:absolute;width:60vmax;height:60vmax;border-radius:50%;filter:blur(40px);opacity:.38;will-change:transform}
+.kx-aurora i:nth-child(1){left:-20vmax;top:-25vmax;background:radial-gradient(circle,#d7ff3f66,transparent 62%);animation:kxOrbA 17s ease-in-out infinite alternate}
+.kx-aurora i:nth-child(2){right:-22vmax;bottom:-30vmax;background:radial-gradient(circle,#4dd2ff55,transparent 62%);animation:kxOrbB 21s ease-in-out infinite alternate}
+@keyframes kxOrbA{to{transform:translate3d(38vw,22vh,0) scale(1.25)}}@keyframes kxOrbB{to{transform:translate3d(-34vw,-18vh,0) scale(1.2)}}
+.kx-scan{left:0;right:0;top:0;height:2px;z-index:1;background:linear-gradient(90deg,transparent,#d7ff3f,transparent);box-shadow:0 0 18px 3px #d7ff3f88;animation:kxScan 7s cubic-bezier(.45,0,.55,1) infinite;opacity:.0}
+@keyframes kxScan{0%{transform:translateY(0);opacity:0}8%{opacity:.9}50%{opacity:.9}60%,100%{transform:translateY(var(--hh,640px));opacity:0}}
+.kx-syms{inset:0;z-index:1;overflow:hidden}
+.kx-sym{position:absolute;font-size:var(--s,20px);color:var(--accent);opacity:0;animation:kxSym var(--d,12s) var(--dl,0s) ease-in-out infinite;will-change:transform,opacity}
+@keyframes kxSym{0%{opacity:0;transform:translate3d(0,24px,0) rotate(0)}20%{opacity:.75}80%{opacity:.5}100%{opacity:0;transform:translate3d(var(--dx,20px),-90px,0) rotate(var(--r,120deg))}}
+.kx-badge{right:clamp(14px,4vw,64px);bottom:clamp(70px,12vw,130px);width:clamp(96px,13vw,168px);aspect-ratio:1;z-index:2;display:grid;place-items:center}
+.kx-scroll,.kx-spin{position:absolute;inset:0}.kx-spin{animation:kxSpin 18s linear infinite}@keyframes kxSpin{to{transform:rotate(360deg)}}
+.kx-spin svg{width:100%;height:100%;overflow:visible}.kx-spin text{font:600 15px 'DM Mono',monospace;fill:var(--accent);letter-spacing:.06em}
+.kx-badge b{position:relative;display:grid;place-items:center;width:34%;aspect-ratio:1;border-radius:50%;background:var(--accent);color:#111;font:800 italic clamp(18px,3vw,34px) Manrope,Arial,sans-serif;animation:kxPulse 2.4s ease-in-out infinite}
+@keyframes kxPulse{50%{transform:scale(1.12);box-shadow:0 0 0 10px #d7ff3f22}}
+.hero .button:after{content:'';position:absolute;top:0;left:-70%;width:45%;height:100%;pointer-events:none;background:linear-gradient(100deg,transparent,#d7ff3f55,transparent);animation:kxSweep 3.8s ease-in-out infinite}
+@keyframes kxSweep{0%,55%{transform:translateX(0)}100%{transform:translateX(420%)}}
+.product-tag{position:relative;overflow:hidden}.product-tag:after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,#ffffffaa,transparent);animation:kxSweep 4.5s 1s ease-in-out infinite}
+/* photo roll */
+.kx-roll{overflow:hidden;padding:30px 0 34px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(var(--bg),var(--panel))}
+.kx-cap{margin:0 0 16px 4.2%;font:10px 'DM Mono',monospace;letter-spacing:.16em;color:var(--accent)}
+.kx-row{overflow:hidden;margin-bottom:12px}.kx-row:last-child{margin-bottom:0}
+.kx-track{display:flex;gap:12px;width:max-content;animation:kxRoll 55s linear infinite;will-change:transform}.kx-row.rev .kx-track{animation-direction:reverse;animation-duration:65s}
+@keyframes kxRoll{to{transform:translateX(-50%)}}
+.kx-it{flex:none;height:clamp(170px,22vw,300px);aspect-ratio:4/5;padding:0;background:#fff;border:1px solid var(--line);overflow:hidden;position:relative;cursor:pointer}
+.kx-it img{width:100%;height:100%;object-fit:contain;transition:transform .6s var(--ease-out)}.kx-it:hover img{transform:scale(1.07)}
+@media(hover:hover){.kx-roll:hover .kx-track{animation-play-state:paused}}
+/* crossing tapes */
+.kx-tapes{position:relative;height:clamp(110px,16vw,190px);overflow:hidden;margin:6px 0}
+.kx-tape{position:absolute;left:-5%;right:-5%;top:50%;padding:12px 0;overflow:hidden;font:700 clamp(12px,1.6vw,18px) 'DM Mono',monospace;letter-spacing:.2em;white-space:nowrap}
+.kx-tape.a{background:var(--accent);color:#111;transform:translateY(-50%) rotate(-3deg);z-index:2}
+.kx-tape.b{background:#111;color:var(--accent);border-block:1px solid #333;transform:translateY(-50%) rotate(2.4deg)}
+.kx-tape div{width:max-content;animation:kxTape 38s linear infinite}.kx-tape.b div{animation-direction:reverse;animation-duration:46s}
+@keyframes kxTape{to{transform:translateX(-50%)}}
+/* floating photos (only the visible cards animate) */
+.kx-live .product-photo{animation:kxFloat 6.5s var(--kd,0s) ease-in-out infinite}
+@keyframes kxFloat{0%,100%{translate:0 0}50%{translate:0 -7px}}
+/* newsletter + titles */
+.newsletter{position:relative;overflow:hidden}.newsletter>*{position:relative;z-index:1}
+.newsletter:before{content:'';position:absolute;inset:-40%;z-index:0;pointer-events:none;background:radial-gradient(circle at 30% 40%,#ffffff88,transparent 38%),radial-gradient(circle at 72% 62%,#00000014,transparent 42%);animation:kxDrift 15s ease-in-out infinite alternate}
+@keyframes kxDrift{to{transform:translate3d(14%,8%,0) rotate(8deg)}}
+.kf-split:after{content:'';display:block;margin-top:14px;height:3px;width:0;background:var(--accent);transition:width .9s .55s var(--ease-out)}.kf-split.km-in:after{width:84px}
+@media(max-width:760px){
+ .kx-aurora i:nth-child(2){display:none}.kx-aurora i{width:90vw;height:90vw;filter:blur(28px);opacity:.3}
+ .kx-badge{bottom:84px;width:92px}.kx-spin text{font-size:16px}
+ .kx-it{height:190px}.kx-track{animation-duration:48s;gap:8px}.kx-roll{padding:22px 0 24px}
+ @keyframes kxFloat{50%{translate:0 -4px}}
+}
+.km-lite .kx-track,.km-lite .kx-tape div{animation-duration:90s}
+.km-lite .newsletter:before,.km-lite .product-tag:after,.km-lite .hero .button:after{animation:none}
+@media(prefers-reduced-motion:reduce){.kx-track,.kx-tape div,.kx-live .product-photo{animation:none}}
+
+.kx-it{background:#141414}.kx-it img{opacity:0;transition:opacity .5s,transform .6s var(--ease-out)}.kx-it img.ok{opacity:1}
+.km-pc .kx-badge{right:clamp(150px,11vw,200px)}
