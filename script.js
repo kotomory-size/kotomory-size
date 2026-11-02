@@ -26,7 +26,9 @@ const MATERIALS={
 };
 products.forEach(p=>Object.assign(p,MATERIALS[p.id]||{}));
 /* на телефонах — облегчённые фото (-sm), на ПК — полное качество */
-if(matchMedia('(max-width:760px)').matches){const sm=u=>u&&u.replace(/\.webp$/,'-sm.webp');products.forEach(p=>{if(p.images)p.images=p.images.map(sm);if(p.detailImages)p.detailImages=p.detailImages.map(sm);if(p.cardImage)p.cardImage=sm(p.cardImage);if(p.image)p.image=sm(p.image)})}
+const sm=u=>u&&u.replace(/\.webp$/,'-sm.webp');
+if(!matchMedia('(max-width:760px)').matches)products.forEach(p=>{if(p.images)p.images=p.images.map(sm)});
+if(matchMedia('(max-width:760px)').matches){products.forEach(p=>{if(p.images)p.images=p.images.map(sm);if(p.detailImages)p.detailImages=p.detailImages.map(sm);if(p.cardImage)p.cardImage=sm(p.cardImage);if(p.image)p.image=sm(p.image)})}
 
 function readStoredJSON(storage,key,fallback){try{const value=JSON.parse(storage.getItem(key)||'null');return value===null?fallback:value}catch(_){return fallback}}
 let cart=readStoredJSON(sessionStorage,'kotomory-cart',[]),currentFilter='all',lang='ru',pendingProduct=null,selectedSize='M',promoApplied=false;

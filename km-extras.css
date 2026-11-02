@@ -110,3 +110,8 @@
 @keyframes prType{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
 .pr-term pre span{animation-name:prType2;animation-fill-mode:forwards}@keyframes prType2{to{opacity:1}}
 .pr-term:last-of-type pre:after{content:'▌';color:#4dff88;animation:prBlink 1s steps(1) infinite}@keyframes prBlink{50%{opacity:0}}
+
+.cb-board{touch-action:none}
+.cb-sq.drag span{opacity:.22}
+.cb-ghost{position:fixed;left:0;top:0;z-index:135;pointer-events:none;display:grid;place-items:center;line-height:1;filter:drop-shadow(0 10px 8px #000a);will-change:transform}
+.cb-ghost.w{color:#fff;text-shadow:0 0 2px #000,0 1px 3px #000}.cb-ghost.b{color:#0b0b0b;text-shadow:0 0 2px #fff,0 0 1px #fff}

@@ -20,7 +20,7 @@ export default {
     const url = new URL(req.url);
     if (req.method === 'OPTIONS') return new Response(null, { headers: cors(env) });
 
-    // 1) Покупатель отправил сообщение
+    // 1) Покупатель отправил сообщение (чат)
     if (url.pathname === '/send' && req.method === 'POST') {
       const { sid, text, page, cart } = await req.json();
       if (!sid || !text || String(text).length > 800) return json(env, { ok: false }, 400);
@@ -28,6 +28,31 @@ export default {
       const r = await tg(env, 'sendMessage', { chat_id: env.CHAT_ID, text: msg });
       if (r.ok) await env.CHAT_KV.put(`m:${r.result.message_id}`, sid, { expirationTtl: 60 * 60 * 24 * 14 });
       return json(env, { ok: !!r.ok });
+    }
+
+    // 1b) Уведомление «на сайт кто-то зашёл» (без личных данных: только страна, устройство, страница)
+    if (url.pathname === '/visit' && req.method === 'POST') {
+      let v = {};
+      try { v = await req.json(); } catch (_) {}
+      const now = Date.now();
+      const last = Number((await env.CHAT_KV.get('v:last')) || 0);
+      const pending = Number((await env.CHAT_KV.get('v:pending')) || 0);
+      const every = Number(env.VISIT_EVERY_SEC || 120) * 1000; // не чаще одного уведомления в 2 минуты
+      if (now - last < every) {
+        await env.CHAT_KV.put('v:pending', String(pending + 1), { expirationTtl: 3600 });
+        return json(env, { ok: true, queued: true });
+      }
+      const ua = v.touch ? '📱 телефон' : '💻 компьютер';
+      const country = (req.cf && req.cf.country) || '—';
+      const when = new Date(now).toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' });
+      const more = pending ? `\n➕ Ещё ${pending} визит(ов) за это время` : '';
+      await tg(env, 'sendMessage', {
+        chat_id: env.CHAT_ID,
+        text: `👀 На сайт KOTOMORY кто-то зашёл\n${ua} · ${v.w || '?'}×${v.h || '?'}\n🌍 Страна: ${country}\n🔗 Откуда: ${String(v.ref || 'напрямую').slice(0, 120)}\n📄 Страница: ${String(v.page || '/').slice(0, 80)}\n🕒 ${when} (МСК)${more}`,
+      });
+      await env.CHAT_KV.put('v:last', String(now), { expirationTtl: 3600 });
+      await env.CHAT_KV.put('v:pending', '0', { expirationTtl: 3600 });
+      return json(env, { ok: true });
     }
 
     // 2) Сайт спрашивает, есть ли новые ответы

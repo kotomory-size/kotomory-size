@@ -70,10 +70,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('#themeToggle,#mo
 $$('.button,.filter,.promo-apply').forEach(b=>b.classList.add('km-rip'));
 document.addEventListener('pointerdown',e=>{const b=e.target.closest('.km-rip');if(!b||RM)return;const r=b.getBoundingClientRect(),s=Math.max(r.width,r.height)*2,i=document.createElement('i');i.style.cssText=`width:${s}px;height:${s}px;left:${e.clientX-r.left-s/2}px;top:${e.clientY-r.top-s/2}px`;b.append(i);setTimeout(()=>i.remove(),650)});
 if(FINE&&!RM){$$('.button:not(.kc-btn),.cart-btn,.fun-actions button').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.translate=`${(e.clientX-r.left-r.width/2)*.25}px ${(e.clientY-r.top-r.height/2)*.25}px`});b.addEventListener('pointerleave',()=>b.style.translate='')});
- const c=document.createElement('div');c.className='km-cur';document.body.append(c);let x=0,y=0,cx=0,cy=0,run=false;
- const loop=()=>{cx+=(x-cx)*.2;cy+=(y-cy)*.2;c.style.transform=`translate3d(${cx}px,${cy}px,0)`;if(Math.abs(x-cx)+Math.abs(y-cy)>.3)raf(loop);else run=false};
- addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY;c.style.opacity=1;c.classList.toggle('big',!!e.target.closest('a,button,summary,select,label,[role=button],.product-visual'));if(!run){run=true;raf(loop)}},{passive:true});
- H.addEventListener('mouseleave',()=>c.style.opacity=0)}
+}
 
 /* 9. product modal: hover zoom, arrow keys, share link, deep link */
 const dm=$('.detail-main-image'),di=$('#detailProductImage');
@@ -92,14 +89,17 @@ const dl=location.hash.match(/^#product-(\d+)/);if(dl&&products.some(p=>p.id===+
 const bar=document.createElement('div');bar.className='km-bar';document.body.prepend(bar);
 const hdr=$('.site-header'),nav=$('#mainNav'),hi=$('.hero>img'),hero=$('.hero'),ei=$('.editorial-image img'),eb=$('.editorial-image'),top=$('#backToTop');
 const anims=[];const tk=$('.ticker div');if(tk&&tk.getAnimations)anims.push(...tk.getAnimations());
-const big=$('.km-big div');if(big&&!RM)anims.push(big.animate([{transform:'translateX(0)'},{transform:'translateX(-50%)'}],{duration:40000,iterations:Infinity}));
+const big=$('.km-big div');if(big&&!RM){const A=big.animate([{transform:'translateX(0)'},{transform:'translateX(-50%)'}],{duration:40000,iterations:Infinity});anims.push(A);if('IntersectionObserver' in window)new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?A.play():A.pause()),{rootMargin:'140px'}).observe(big.parentElement)}
 let ly=scrollY,boost=0,tick=false,lp=-1;
-function frame(){tick=false;const y=scrollY,dy=y-ly,h=H.scrollHeight-innerHeight;
+let maxS=0,heroH=0,eTop=0,eH=0,lastB=0;
+const measure=()=>{maxS=H.scrollHeight-innerHeight;heroH=hero?hero.offsetHeight:0;if(eb){const r=eb.getBoundingClientRect();eTop=r.top+scrollY;eH=r.height}};
+measure();addEventListener('resize',()=>{measure();schedule()});addEventListener('load',measure);if('ResizeObserver' in window)new ResizeObserver(measure).observe(document.body);
+function frame(){tick=false;const y=scrollY,dy=y-ly,h=maxS;
  bar.style.transform=`scaleX(${h>0?y/h:0})`;
  if(!RM){if(y<120||nav.classList.contains('open'))hdr.classList.remove('km-hide');else if(dy>2)hdr.classList.add('km-hide');else if(dy<-2)hdr.classList.remove('km-hide');
-  if(FINE&&y<hero.offsetHeight*1.2&&hi)hi.style.translate=`0 ${Math.min(y*.15,hero.offsetHeight*.14)}px`;
-  if(FINE&&ei){const r=eb.getBoundingClientRect(),m=r.height*.07;if(r.bottom>0&&r.top<innerHeight)ei.style.translate=`0 ${clamp((r.top+r.height/2-innerHeight/2)*-.1,-m,m)}px`}
-  if(FINE){boost=dy?clamp(dy*.35,-4,10):boost*.9;anims.forEach(a=>a.playbackRate=1+boost);if(Math.abs(boost)>.05)schedule()}}
+  if(FINE&&y<heroH*1.2&&hi)hi.style.translate=`0 ${Math.min(y*.15,heroH*.14)}px`;
+  if(FINE&&ei){const t=eTop-y,m=eH*.07;if(t+eH>0&&t<innerHeight)ei.style.translate=`0 ${clamp((t+eH/2-innerHeight/2)*-.1,-m,m)}px`}
+  if(FINE){boost=dy?clamp(dy*.35,-4,10):boost*.9;if(Math.abs(boost-lastB)>.06){lastB=boost;anims.forEach(a=>a.playbackRate=1+boost)}if(Math.abs(boost)>.05)schedule()}}
  if(top){top.classList.toggle('km-show',y>600);const pp=Math.round(h>0?y/h*100:0);if(pp!==lp){lp=pp;top.style.setProperty('--p',pp)}}
  ly=y}
 const schedule=()=>{if(!tick){tick=true;raf(frame)}};

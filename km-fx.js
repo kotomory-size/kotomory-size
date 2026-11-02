@@ -16,9 +16,6 @@ if(FINE)$$('.main-nav a,.footer-links a').forEach(a=>a.addEventListener('pointer
 const eio=new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){scr(e.target,620);o.unobserve(e.target)}}),{threshold:.6});
 $$('.eyebrow').forEach(e=>{if(!e.closest('.hero,.checkout-modal,.cb-ov,.pr-ov,.cart-drawer'))eio.observe(e)});
 
-/* 3. spotlight that follows the cursor on cards */
-if(FINE)document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.product-visual,.detail-card,.km-stat,.km-work,.km-size');if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')},{passive:true});
-
 /* 4. heart burst on favorite */
 document.addEventListener('click',e=>{const f=e.target.closest('[data-favorite]');if(!f)return;const id=f.dataset.favorite;
  setTimeout(()=>{const b=document.querySelector(`[data-favorite="${id}"]`);if(!b||!b.classList.contains('is-favorite'))return;const r=b.getBoundingClientRect();

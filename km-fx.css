@@ -53,7 +53,7 @@ details[open]>*:not(summary){animation:kmUp .45s var(--ease-out)}
 .cb-res h3{animation:kfPop .6s cubic-bezier(.3,1.4,.5,1)}
 /* presentation */
 .pr-ov:not([hidden]){animation:kfFade .35s}
-.pr-ov:before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(420px circle at var(--mx,70%) var(--my,30%),#d7ff3f14,transparent 65%);transition:background .2s}
+.pr-ov:before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(420px circle at var(--mx,70%) var(--my,30%),#d7ff3f08,transparent 65%);transition:background .2s}
 .pr-slide{animation-name:none}
 .pr-slide.r{animation:prR2 .7s cubic-bezier(.2,.75,.25,1)}.pr-slide.l{animation:prL2 .7s cubic-bezier(.2,.75,.25,1)}
 @keyframes prR2{from{opacity:0;transform:translateX(70px) scale(.98);filter:blur(8px)}}@keyframes prL2{from{opacity:0;transform:translateX(-70px) scale(.98);filter:blur(8px)}}
