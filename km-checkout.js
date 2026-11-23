@@ -5,12 +5,12 @@ const KC={
  freeFrom:10000,                                   // бесплатная доставка от суммы
  ship:{courier:500,pickup:300,post:350},           // цены доставки, ₽
  promo:{KOTOMORY10:.10},                           // промокоды: код → скидка
- req:{recipient:'Розов Егор',bank:'ВПИШИ СВОЙ БАНК',card:'0000 0000 0000 0000',phone:'+7 000 000-00-00'}, // реквизиты для перевода
+ req:{recipient:'Егор.Р',bank:'Т-Банк',card:'2200702152920224',phone:'+79944279818'}, // реквизиты для перевода
  tg:'https://t.me/spectremeiner'
 };
 window.KMCFG=KC;
 const L=(r,e)=>lang==='ru'?r:e,G=id=>document.getElementById(id),F=n=>document.querySelector('#kcForm [name="'+n+'"]');
-let usePts=0,lastOrder=null,step=1,del='courier',op='СДЭК',pay='card',promo=null,orderNo='',busy=false,lastSummary='';
+let usePts=0,lastOrder=null,step=1,del='courier',op='СДЭК',pay='transfer',promo=null,orderNo='',busy=false,lastSummary='';
 const sub=()=>cartSubtotal(),ship=()=>{const s=sub();return s===0||s>=KC.freeFrom?0:KC.ship[del]},pd=()=>promo?Math.round(sub()*KC.promo[promo]):0,gd=()=>{let r='none';try{r=localStorage.getItem('kotomory-reward')||'none'}catch(_){}if(r!=='won'||!cart.length)return 0;return Math.round(Math.max(...cart.map(i=>(products.find(p=>p.id===i.id)||{price:0}).price))*.1)},disc=()=>pd()+gd(),itemsNet=()=>Math.max(0,sub()-disc()),pp=()=>{const Y=window.kmLoyalty;return Y&&Y.has()?Y.clampUse(usePts,itemsNet()):0},total=()=>Math.max(0,sub()+ship()-disc()-pp());
 const DN=()=>({courier:L('Курьер','Courier'),pickup:L('Пункт выдачи','Pickup point'),post:L('Почта России','Russian Post')});
 const ADDR={courier:['УЛИЦА, ДОМ, КВАРТИРА','STREET, HOUSE, APT','Улица, дом, кв., подъезд, этаж','Street, house, apt'],pickup:['АДРЕС ИЛИ КОД ПУНКТА ВЫДАЧИ','PICKUP POINT ADDRESS OR CODE','Например, MSK1234 или адрес пункта','e.g. MSK1234 or point address'],post:['УЛИЦА, ДОМ, КВАРТИРА','STREET, HOUSE, APT','Улица, дом, квартира','Street, house, apt']};
@@ -20,7 +20,7 @@ const store='kotomory-checkout',load=()=>{try{return JSON.parse(localStorage.get
 const save=()=>{try{localStorage.setItem(store,JSON.stringify({name:F('name').value,city:F('city').value}))}catch(_){}};
 const copy=async t=>{try{await navigator.clipboard.writeText(t);return 1}catch(_){const a=document.createElement('textarea');a.value=t;a.style.cssText='position:fixed;opacity:0';document.body.append(a);a.select();let ok=0;try{ok=document.execCommand('copy')}catch(_){}a.remove();return ok}};
 
-const reqHTML=()=>{const t=total(),r=KC.req,rows=[[L('Получатель','Recipient'),r.recipient],[L('Банк','Bank'),r.bank],[L('Номер карты','Card number'),r.card],[L('Телефон (СБП)','Phone (SBP)'),r.phone],[L('Сумма','Amount'),money(t)],[L('Комментарий к переводу','Payment comment'),orderNo]];
+const reqHTML=()=>{const t=total(),r=KC.req,rows=[[L('Получатель','Recipient'),r.recipient],[L('Банк','Bank'),r.bank],[L('Номер карты','Card number'),r.card],[L('Телефон','Phone'),r.phone],[L('Сумма','Amount'),money(t)],[L('Комментарий к переводу','Payment comment'),orderNo]];
  return `<div class="kc-req">${rows.map(([k,v])=>`<div><div><span>${k}</span><strong>${v}</strong></div><button type="button" data-copy="${String(v).replace(/"/g,'&quot;')}">${L('КОПИРОВАТЬ','COPY')}</button></div>`).join('')}</div>`};
 
 function render(){
