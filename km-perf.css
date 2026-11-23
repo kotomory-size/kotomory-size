@@ -1,0 +1,17 @@
+/* performance governor styles */
+.kp-hidden *,.kp-off,.kp-off *{animation-play-state:paused!important}
+/* slow device: keep the page, drop the expensive parts */
+.km-slow .kx-syms,.km-slow .kx-tapes,.km-slow .kx-aurora,.km-slow .kd-grain,.km-slow .kd-trail,
+.km-slow .kx-roll,.km-slow .kx-badge,.km-slow .km-big div,.km-slow .ticker div,.km-slow .kx-live .product-photo{animation:none!important}
+.km-slow .kx-syms,.km-slow .kx-aurora,.km-slow .kd-grain,.km-slow .kd-trail,.km-slow .kx-badge{display:none!important}
+.km-slow .kx-roll{display:none}
+.km-slow *{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;text-shadow:none!important}
+.km-slow .km-motion [data-km]{transition-duration:.35s!important;clip-path:none!important}
+.km-slow .km-motion [data-km=img]{transform:none!important}
+.km-slow .kf-w i{transition-duration:.4s!important}
+/* phones: no clip-path reveals (they repaint on every frame of the animation) */
+@media(pointer:coarse){
+ .km-motion [data-km=title],.km-motion [data-km=img],.km-motion [data-km]{clip-path:none!important}
+ .km-motion [data-km=img]{transform:none!important}
+}
+@media(pointer:coarse){.kz-fab{transition:transform .35s var(--ease-out),opacity .35s}.kz-fab.away{transform:translateX(-140%);opacity:0;pointer-events:none}}

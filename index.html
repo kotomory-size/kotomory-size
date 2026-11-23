@@ -1,9 +1,19 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self' data: blob:; connect-src 'self' https://*.workers.dev; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="theme-color" content="#090909">
+  <meta name="color-scheme" content="dark">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="KOTOMORY">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" href="icon-192.png" sizes="192x192" type="image/png">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="description" content="KOTOMORY — независимый fashion-бренд. Y2K, минимализм и современный streetwear.">
-  <title>KOTOMORY — Y2K Fashion Brand</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="km-motion.css"><link rel="stylesheet" href="km-checkout.css"><link rel="stylesheet" href="km-extras.css"><link rel="stylesheet" href="km-fx.css"><link rel="stylesheet" href="km-mobile.css"><link rel="stylesheet" href="km-desktop.css"><link rel="stylesheet" href="km-more.css"><link rel="stylesheet" href="km-motion2.css"><link rel="stylesheet" href="km-loyalty.css"><script>(function(d){var c=d.classList,n=navigator,cn=n.connection||{};if(!matchMedia("(prefers-reduced-motion:reduce)").matches)c.add("km-motion");if(matchMedia("(hover:hover) and (pointer:fine) and (min-width:1024px)").matches&&!(n.deviceMemory<=2||n.hardwareConcurrency<=2))c.add("km-pc");if(n.deviceMemory<=2||n.hardwareConcurrency<=2||cn.saveData||/2g/.test(cn.effectiveType||""))c.add("km-lite")})(document.documentElement)</script>
+  <title>KOTOMORY — Y2K Fashion Brand</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="km-motion.css"><link rel="stylesheet" href="km-checkout.css"><link rel="stylesheet" href="km-extras.css"><link rel="stylesheet" href="km-fx.css"><link rel="stylesheet" href="km-mobile.css"><link rel="stylesheet" href="km-desktop.css"><link rel="stylesheet" href="km-more.css"><link rel="stylesheet" href="km-motion2.css"><link rel="stylesheet" href="km-loyalty.css"><link rel="stylesheet" href="km-spin.css"><link rel="stylesheet" href="km-detail.css"><link rel="stylesheet" href="km-perf.css"><link rel="stylesheet" href="km-gallery.css"><script src="km-boot.js"></script>
 </head>
 <body>
   <div class="km-pre" id="kmPre" aria-hidden="true"><i></i><i></i><b><span style="--i:0">K</span><span style="--i:1">O</span><span style="--i:2">T</span><span style="--i:3">O</span><span style="--i:4">M</span><span style="--i:5">O</span><span style="--i:6">R</span><span style="--i:7">Y</span></b><em>000</em><u></u></div>
@@ -144,7 +154,13 @@
   <div class="toast" id="toast" role="status"></div>
   <script src="script.js"></script>
   <script src="km-motion.js"></script>
+  <script src="km-spin-data.js"></script>
   <script src="km-loyalty.js"></script>
+  <script src="km-spin.js"></script>
+  <script src="km-detail.js"></script>
+  <script src="km-i18n.js"></script>
+  <script src="km-perf.js"></script>
+  <script src="km-gallery.js"></script>
   <script src="km-checkout.js"></script>
   <script src="km-extras.js"></script>
   <script src="km-fx.js"></script>

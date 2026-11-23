@@ -1,0 +1,2 @@
+/* early boot: reduced-motion and low-end detection (runs before first paint) */
+(function(d){var c=d.classList,n=navigator,cn=n.connection||{};if(!matchMedia("(prefers-reduced-motion:reduce)").matches)c.add("km-motion");if(matchMedia("(hover:hover) and (pointer:fine) and (min-width:1024px)").matches&&!(n.deviceMemory<=2||n.hardwareConcurrency<=2))c.add("km-pc");if(n.deviceMemory<=2||n.hardwareConcurrency<=2||cn.saveData||/2g/.test(cn.effectiveType||""))c.add("km-lite")})(document.documentElement)

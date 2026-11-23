@@ -17,7 +17,7 @@ const ADDR={courier:['УЛИЦА, ДОМ, КВАРТИРА','STREET, HOUSE, APT'
 const rules={name:v=>v.trim().length>=2,phone:v=>v.replace(/\D/g,'').length===11,email:v=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()),city:v=>v.trim().length>=2,address:v=>v.trim().length>=4,zip:v=>{v=v.trim();return del==='post'?/^\d{6}$/.test(v):(!v||/^\d{6}$/.test(v))}};
 const fieldsOf={1:['name','phone','email'],2:['city','address','zip']};
 const store='kotomory-checkout',load=()=>{try{return JSON.parse(localStorage.getItem(store)||'{}')}catch(_){return{}}};
-const save=()=>{try{localStorage.setItem(store,JSON.stringify({name:F('name').value,phone:F('phone').value,email:F('email').value,city:F('city').value}))}catch(_){}};
+const save=()=>{try{localStorage.setItem(store,JSON.stringify({name:F('name').value,city:F('city').value}))}catch(_){}};
 const copy=async t=>{try{await navigator.clipboard.writeText(t);return 1}catch(_){const a=document.createElement('textarea');a.value=t;a.style.cssText='position:fixed;opacity:0';document.body.append(a);a.select();let ok=0;try{ok=document.execCommand('copy')}catch(_){}a.remove();return ok}};
 
 const reqHTML=()=>{const t=total(),r=KC.req,rows=[[L('Получатель','Recipient'),r.recipient],[L('Банк','Bank'),r.bank],[L('Номер карты','Card number'),r.card],[L('Телефон (СБП)','Phone (SBP)'),r.phone],[L('Сумма','Amount'),money(t)],[L('Комментарий к переводу','Payment comment'),orderNo]];

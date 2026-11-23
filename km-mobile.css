@@ -13,3 +13,21 @@ button,a,input,select,label,summary{touch-action:manipulation;-webkit-tap-highli
 .km-lite .pr-slide.r,.km-lite .pr-slide.l{animation:prR .3s;filter:none}
 .km-lite .pr-ov:before,.km-lite .pr-slide:before{display:none}
 .km-lite .hero>img{animation:none}
+
+/* iPhone / Android hardening */
+@media(max-width:760px){
+ input,select,textarea{font-size:16px!important}             /* iOS Safari zooms the page if an input is < 16px */
+ button,a,[role=button],summary{min-height:40px}
+}
+@supports(height:100dvh){ .km-motion .hero,.checkout-modal,.product-detail-modal,.cb-ov,.pr-ov{min-height:100dvh} }
+body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+img,video{max-width:100%;height:auto}
+/* touch targets: Apple asks for 44px, Material for 48dp */
+@media(pointer:coarse){
+ .favorite-toggle{width:44px!important;height:44px!important}
+ #kmDock,.fun-actions button{min-width:44px;min-height:44px}
+ .kz-fab{width:52px;height:52px}
+ .mobile-bottom-nav a,.mobile-bottom-nav button{min-height:48px}
+}
+/* iPhone home indicator: keep the bottom bar above it */
+.mobile-bottom-nav{padding-bottom:calc(8px + env(safe-area-inset-bottom,0px))}

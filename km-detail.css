@@ -1,0 +1,8 @@
+.km-dmeta{margin:14px 0 6px;padding:12px 14px;border:1px solid var(--line);border-left:3px solid var(--accent)}
+.km-dm-k{margin:0 0 4px;font:9px 'DM Mono',monospace;letter-spacing:.14em;color:var(--accent)}
+.km-dm-v{margin:0 0 10px;font-size:13px;line-height:1.5;color:var(--muted)}.km-dm-v:last-child{margin-bottom:0}
+/* desktop: floating buttons fold into one ✦ so they never cover card prices; click to open */
+.km-pc #kmDock{display:grid}
+.km-pc .fun-actions:not(.open)>button:not(#kmDock):not(#backToTop){display:none!important}
+.km-pc .fun-actions.open>#kmDock{background:var(--accent);color:#111}
+.km-pc .fun-actions.open>button:not(#backToTop){animation:kmUp .3s var(--ease-out) both}

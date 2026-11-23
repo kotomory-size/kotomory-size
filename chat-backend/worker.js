@@ -3,6 +3,29 @@
 // Ты отвечаешь в Telegram командой «Ответить» (Reply) → ответ появляется у покупателя на сайте.
 //
 // Нужно: переменные BOT_TOKEN, CHAT_ID, WEBHOOK_SECRET, ALLOW_ORIGIN и KV-хранилище CHAT_KV.
+
+// ---- hardening helpers ----
+const MAX_BODY = 4096;                       // bytes accepted from the site
+const SID_RE = /^[a-z0-9]{6,12}$/;            // visitor id format used by the site
+async function readJson(req) {
+  const len = Number(req.headers.get('content-length') || 0);
+  if (len > MAX_BODY) return null;
+  const txt = await req.text();
+  if (txt.length > MAX_BODY) return null;
+  try { return JSON.parse(txt); } catch (_) { return null; }
+}
+// fixed-window rate limit per visitor id and per IP, stored in KV
+async function limited(env, key, max, windowSec) {
+  const k = 'rl:' + key;
+  const n = Number((await env.CHAT_KV.get(k)) || 0);
+  if (n >= max) return true;
+  await env.CHAT_KV.put(k, String(n + 1), { expirationTtl: windowSec });
+  return false;
+}
+const clientIp = (req) => req.headers.get('CF-Connecting-IP') || 'unknown';
+const tooMany = (env) => json(env, { ok: false, error: 'rate_limited' }, 429);
+const clean = (s, n) => String(s || '').replace(/[\u0000-\u001f\u007f]/g, ' ').slice(0, n);
+
 const cors = (env) => ({
   'Access-Control-Allow-Origin': env.ALLOW_ORIGIN || '*',
   'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
@@ -22,8 +45,12 @@ export default {
 
     // 1) Покупатель отправил сообщение (чат)
     if (url.pathname === '/send' && req.method === 'POST') {
-      const { sid, text, page, cart } = await req.json();
-      if (!sid || !text || String(text).length > 800) return json(env, { ok: false }, 400);
+      const body = await readJson(req);
+      if (!body) return json(env, { ok: false, error: 'bad_request' }, 400);
+      const sid = String(body.sid || ''), text = clean(body.text, 800);
+      if (!SID_RE.test(sid) || !text.trim()) return json(env, { ok: false, error: 'bad_request' }, 400);
+      if (await limited(env, 'send:' + sid, 8, 60) || await limited(env, 'ip:' + clientIp(req), 30, 60)) return tooMany(env);
+      const page = clean(body.page, 120), cart = clean(body.cart, 300);
       const msg = `💬 Чат KOTOMORY · ${String(sid).slice(0, 6)}\n\n${text}\n\n${cart ? 'Корзина: ' + cart + '\n' : ''}${page || ''}\n\n↩️ Ответь на это сообщение (Reply), и ответ уйдёт покупателю на сайт.`;
       const r = await tg(env, 'sendMessage', { chat_id: env.CHAT_ID, text: msg });
       if (r.ok) await env.CHAT_KV.put(`m:${r.result.message_id}`, sid, { expirationTtl: 60 * 60 * 24 * 14 });
@@ -32,8 +59,9 @@ export default {
 
     // 1b) Уведомление «на сайт кто-то зашёл» (без личных данных: только страна, устройство, страница)
     if (url.pathname === '/visit' && req.method === 'POST') {
-      let v = {};
-      try { v = await req.json(); } catch (_) {}
+      let v = (await readJson(req)) || {};
+      if (await limited(env, 'visit:' + clientIp(req), 20, 300)) return tooMany(env);
+      v = { w: Number(v.w) | 0, h: Number(v.h) | 0, touch: !!v.touch, page: clean(v.page, 80), ref: clean(v.ref, 120) };
       const now = Date.now();
       const last = Number((await env.CHAT_KV.get('v:last')) || 0);
       const pending = Number((await env.CHAT_KV.get('v:pending')) || 0);
@@ -57,7 +85,9 @@ export default {
 
     // 2) Сайт спрашивает, есть ли новые ответы
     if (url.pathname === '/poll' && req.method === 'GET') {
-      const sid = url.searchParams.get('sid');
+      const sid = url.searchParams.get('sid') || '';
+      if (!SID_RE.test(sid)) return json(env, { replies: [] }, 400);
+      if (await limited(env, 'poll:' + sid, 60, 60)) return tooMany(env);
       const after = Number(url.searchParams.get('after') || 0);
       const all = JSON.parse((await env.CHAT_KV.get(`r:${sid}`)) || '[]');
       return json(env, { replies: all.filter((m) => m.ts > after) });

@@ -44,7 +44,7 @@ if(FINE&&!RM){grid.addEventListener('pointermove',e=>{const v=e.target.closest('
 $('#kmWish')?.addEventListener('click',()=>{$('.filter[data-filter="favorites"]').click();$('#shop').scrollIntoView({behavior:'smooth'})});
 
 /* 5. cart: fly-to-cart, bump, row cascade */
-const _add=window.addToCart;window.addToCart=function(id){if(!RM)try{fly(id)}catch(_){}return _add.apply(this,arguments)};
+KM.cart.push(id=>{if(!RM)try{fly(id)}catch(_){}});
 function fly(id){const open=$('#productDetailModal').classList.contains('open');const src=open?$('#detailProductImage'):$(`[data-product-image="${id}"]`);if(!src)return;const a=src.getBoundingClientRect(),t=(innerWidth<=760?$('#mobileCart'):$('#cartToggle')).getBoundingClientRect();
  const im=document.createElement('img');im.src=src.src;im.className='km-fly';document.body.append(im);
  const at=(r,s)=>`translate(${r.left+r.width/2-45}px,${r.top+r.height/2-55}px) scale(${s})`;
@@ -126,8 +126,8 @@ const szMark=(box,sel)=>box&&box.querySelectorAll('[data-c]').forEach(c=>c.class
 const szD=document.createElement('div'),szS=document.createElement('div');szD.id='kmSzD';szS.id='kmSzS';
 $('.detail-sizes')?.after(szD);$('.size-note')?.before(szS);let curD=null,curS=null;
 const paintD=()=>{if(curD==null)return;szD.innerHTML=szHTML(curD);szMark(szD,detailSelectedSize)},paintS=()=>{if(curS==null)return;szS.innerHTML=szHTML(curS);szMark(szS,selectedSize)};
-const _opd=window.openProductDetail;window.openProductDetail=function(id){const r=_opd.apply(this,arguments);curD=id;paintD();return r};
-const _osp=window.openSizePicker;window.openSizePicker=function(id){const r=_osp.apply(this,arguments);curS=id;paintS();return r};
+KM.detail.push(id=>{curD=id;paintD()});
+KM.size.push(id=>{curS=id;paintS()});
 document.addEventListener('click',e=>{if(e.target.closest('[data-detail-size]'))szMark(szD,detailSelectedSize);if(e.target.closest('[data-size]'))szMark(szS,selectedSize)});
 $('#langToggle')?.addEventListener('click',()=>{paintD();paintS()});
 })();

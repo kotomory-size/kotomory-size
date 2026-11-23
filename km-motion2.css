@@ -23,7 +23,7 @@
 @keyframes kxPulse{50%{transform:scale(1.12)}}
 .hero .button:after{content:'';position:absolute;top:0;left:-70%;width:45%;height:100%;pointer-events:none;background:linear-gradient(100deg,transparent,#d7ff3f55,transparent);animation:kxSweep 3.8s ease-in-out infinite}
 @keyframes kxSweep{0%,55%{transform:translateX(0)}100%{transform:translateX(420%)}}
-.product-tag{position:relative;overflow:hidden}.product-tag:after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,#ffffffaa,transparent);animation:kxSweep 4.5s 1s ease-in-out infinite}
+.product-tag{position:absolute;overflow:hidden}.product-tag:after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,#ffffffaa,transparent);animation:kxSweep 4.5s 1s ease-in-out infinite}
 /* photo roll */
 .kx-roll{overflow:hidden;padding:30px 0 34px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(var(--bg),var(--panel))}
 .kx-cap{margin:0 0 16px 4.2%;font:10px 'DM Mono',monospace;letter-spacing:.16em;color:var(--accent)}
@@ -75,3 +75,6 @@
 .kx-off,.kx-off *{animation-play-state:paused!important}
 .kx-syms,.kx-roll,.kx-tapes,.km-big{contain:layout paint style}
 .kx-row{contain:layout paint}
+
+/* product cards: only the cashback line stays under the photo; details live in the product window */
+.product-card .product-meta,.product-card .product-mat,.product-card .product-details{display:none!important}
